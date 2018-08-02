@@ -347,9 +347,15 @@ printf("%s TIC TAC TOE \n", KRED);
 	PrintBoard(&board[0]);
 	while (!GameOver) { // while game is not over
 	if (Side==NOUGHTS) {
+struct timeval tv3, tv4;
+gettimeofday(&tv3, NULL);
 		LastMoveMade = GetHumanMove (&board[0], Side);
 		MakeMove(&board[0], LastMoveMade, Side);
 		Side=CROSSES;
+       gettimeofday(&tv4, NULL);
+printf ("Total time = %f seconds\n",
+         (double) (tv4.tv_usec - tv3.tv_usec) / 1000000 +
+         (double) (tv4.tv_sec - tv3.tv_sec));
 printf("%s COMPUTER MOVE \n", KBLU);	
 }
 	else {
@@ -381,6 +387,9 @@ printf("%s PLAYER MOVE \n", KNRM);
 
 
 int main() {
+struct timeval tv1, tv2;
+gettimeofday(&tv1, NULL);
+	srand(time(NULL)); /* seed random no generator - moves on board randomly */
 pthread_t thr[NUM_THREADS];
   int i, rc;
   /* create a thread_data_t argument array */
@@ -398,16 +407,12 @@ pthread_t thr[NUM_THREADS];
   for (i = 0; i < NUM_THREADS; ++i) {
     pthread_join(thr[i], NULL);
   }
+
+gettimeofday(&tv2, NULL);
+printf ("Total time = %f seconds\n",
+         (double) (tv2.tv_usec - tv1.tv_usec) / 1000000 +
+         (double) (tv2.tv_sec - tv1.tv_sec));
  
   return EXIT_SUCCESS;
 
-//struct timeval tv1, tv2;
-//gettimeofday(&tv1, NULL);
-//	srand(time(NULL)); /* seed random no generator - moves on board randomly */	
-//RunGame();
-//gettimeofday(&tv2, NULL);
-//printf ("Total time = %f seconds\n",
-  //       (double) (tv2.tv_usec - tv1.tv_usec) / 1000000 +
-    //     (double) (tv2.tv_sec - tv1.tv_sec));
-//	return 0;
 	}	
