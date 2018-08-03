@@ -148,8 +148,7 @@ int MinMax2 (int	*board, int side) {
 		}
 /* OMP parallel section segment - each section in the parallel sections
 section is excecuted in parallel */
-#pragma omp parallel num_threads(4)
-{
+
 #pragma omp parallel sections
 {
  #pragma omp section
@@ -167,7 +166,7 @@ section is excecuted in parallel */
 }
 } // end parallel section
 } // end parallel sections segment
-}
+
 	// if not at top at tree, we return score
 	if(ply!=0)
 		return bestScore;	
@@ -224,8 +223,7 @@ int MinMax (int	*board, int side) {
 		}
 /* OMP parallel section segment - each section in the parallel sections
 section is excecuted in parallel */
-#pragma omp parallel num_threads(4)
-{
+
 #pragma omp parallel sections
 {
  #pragma omp section
@@ -243,7 +241,7 @@ section is excecuted in parallel */
 }
 } // end parallel section
 } // end parallel sections segment
-}
+
 	// if not at top at tree, we return score
 	if(ply!=0)
 		return bestScore;	
@@ -368,6 +366,8 @@ printf("%s TIC TAC TOE \n", KRED);
 
 	while (!GameOver) { // while game is not over
 	if (Side==NOUGHTS) {
+  int tid = omp_get_thread_num();
+        printf("Hello world from omp thread %d\n", tid);
 		LastMoveMade = GetHumanMove (&board[0], Side);
 		MakeMove(&board[0], LastMoveMade, Side);
 		Side=CROSSES;
