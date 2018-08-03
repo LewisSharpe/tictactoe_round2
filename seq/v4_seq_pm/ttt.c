@@ -337,9 +337,15 @@ printf("%s TIC TAC TOE \n", KRED);
 
 	while (!GameOver) { // while game is not over
 	if (Side==NOUGHTS) {
+struct timeval tv3, tv4;
+gettimeofday(&tv3, NULL);
 		LastMoveMade = GetHumanMove (&board[0], Side);
 		MakeMove(&board[0], LastMoveMade, Side);
 		Side=CROSSES;
+gettimeofday(&tv4, NULL);
+printf ("Total time = %f seconds\n",
+         (double) (tv4.tv_usec - tv3.tv_usec) / 1000000 +
+         (double) (tv4.tv_sec - tv3.tv_sec));
 printf("%s COMPUTER MOVE \n", KBLU);	
 }
 	else {
