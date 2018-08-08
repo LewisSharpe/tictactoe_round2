@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 NEW ITERATION
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
@@ -26,6 +29,7 @@ Board:
    -   -   -   -   -   -   -
 
    -   -   -   -   -   -   -
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1397,6 +1401,9 @@ Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.
 =======
 Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000013 seconds
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000013 seconds
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 [34m COMPUTER MOVE 
 Finished searching through positions in tree:13 max depth:12 best move:12
 
@@ -1481,7 +1488,11 @@ Board:
    -   -   -   -   -   -   -
 [0m PLAYER MOVE 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+=======
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
 Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
@@ -1506,6 +1517,9 @@ Board:
    -   -   -   -   -   -   -
 [0m PLAYER MOVE 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
@@ -1536,12 +1550,15 @@ Board:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
 [34m COMPUTER MOVE 
 Game over!
 Human Wins
 Total time = 0.000432 seconds
 =======
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
@@ -1553,6 +1570,9 @@ Human Wins
 Total time = 0.000212 seconds
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25

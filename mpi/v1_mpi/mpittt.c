@@ -271,7 +271,10 @@ int GetComputerMove(int *board, const int side) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
@@ -283,6 +286,9 @@ int GetComputerMove(int *board, const int side) {
 printf(processor_name);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25

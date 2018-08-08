@@ -378,7 +378,11 @@ for (i=0;i<NUM_THREADS;i++)
  int tid = omp_get_thread_num();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         printf("\n handled by omp thread %d\n", tid);
+=======
+        printf("\n from omp thread %d\n", tid);
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
         printf("\n from omp thread %d\n", tid);
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
@@ -395,6 +399,7 @@ printf("%s COMPUTER MOVE \n", KBLU);
 int tid1 = omp_get_thread_num();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         printf("\n handled by omp thread %d\n", tid1);
 printf("%s PLAYER MOVE \n", KNRM);
 	}
@@ -402,11 +407,16 @@ printf("%s PLAYER MOVE \n", KNRM);
 =======
 =======
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
         printf("\n from omp thread %d\n", tid1);
 printf("%s PLAYER MOVE \n", KNRM);
 	}
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 =======
 >>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
