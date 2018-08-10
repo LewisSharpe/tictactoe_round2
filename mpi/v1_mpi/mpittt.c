@@ -1,14 +1,15 @@
-// Tic Tac Toe - C+MPI version
+// Tic Tac Toe - Sequential C version - Version 4 - 7x7 Grid
 // Lewis Sharpe
-// 16.08.2017
+// 25.08.2017 
 
-// compile: mpicc -o mpittt mpittt.c
-// run: mpiexec -n 2 ./mpittt
+// compile: gcc -o ttt7x7 ttt7x7.c
+// run: ./ttt7x7
 
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
-#include <mpi.h>
+#include "time.h"
+#include "mpi.h"
 
 /* text colour code declarations */      
 #define KNRM  "\x1B[0m"
@@ -24,20 +25,24 @@
 enum { NOUGHTS, CROSSES, BORDER, EMPTY };
 enum { HUMANWIN, COMPWIN, DRAW };
 
-#define MSGLEN 4
-#define TAG 100
-void print_time ( struct timeval tbegin, struct timeval tend );
+int loopcount = 49;
+
+ const int PING_PONG_LIMIT = 10;
 
 /* var definitions */
-
-const int Directions[4] = {1, 5, 4, 6}; // times by -1 to go opposite direction
-const int ConvertTo25[9] = { /* positions in 25 array */
-	6,7,8,
-	11,12,13,
-	16,17,18,
+const int Directions[4] = {1, 7, 8, 14}; // 1 7 8 14  
+const int ConvertTo25[49] = { /* positions in 25 array */
+        11,12,13,14,15,16,17,
+        20,21,22,23,24,25,26,
+        29,30,31,32,33,34,35,
+        38,39,40,41,42,43,44,
+        47,48,49,50,51,52,53,
+        56,57,58,59,60,61,62,
+        65,66,67,68,69,70,71,
 };
-const int InMiddle = 4;
-const int Corners[4] = { 0, 2, 6, 8 };
+
+const int InMiddle = 41;
+const int Corners[4] = { 11, 17, 65, 71 };
 
 int ply = 0; // how many moves deep into tree
 int positions = 0; // no of pos searched
@@ -57,27 +62,27 @@ int GetNumForDir (int startSq, const int dir, const int *board, const int us) {
 
 int FindThreeInARow(const int *board, const int ourindex, const int us) {
 
-	int DirIndex = 0;
-	int Dir = 0;
-	int threeCount = 1;
+        int DirIndex = 0;
+        int Dir = 0;
+        int threeCount = 1;
 
 for(DirIndex - 0; DirIndex <4; ++DirIndex) {
-		Dir = Directions[DirIndex];
-		threeCount += GetNumForDir(ourindex + Dir, Dir, board, us);
-		threeCount += GetNumForDir(ourindex + Dir * -1, Dir * -1, board, us);
-		if (threeCount == 3) {
-			break;
-		}
-		threeCount = 1;
-		}
-		return threeCount;
+                Dir = Directions[DirIndex];
+                threeCount += GetNumForDir(ourindex + Dir, Dir, board, us);
+                threeCount += GetNumForDir(ourindex + Dir * -1, Dir * -1, board, us);
+                if (threeCount == 3) {
+                        break;
+                }
+                threeCount = 1;
+                }
+                return threeCount;
 }
 
 int FindThreeInARowAllBoard(const int *board, const int us) {
 // after move made	
 int threeFound = 0;
 	int index;
-	for(index = 0; index < 9; ++index) { // for all 9 squares
+	for(index = 0; index < loopcount; ++index) { // for all 9 squares
 		if(board[ConvertTo25[index]] == us) { // if player move
 			if(FindThreeInARow(board, ConvertTo25[index], us) == 3) {				
 				threeFound = 1; // if move results 3 in row,confirm 
@@ -106,26 +111,13 @@ int MinMax (int	*board, int side) {
 // end moves return bestscore
 	
 // defintions
-	int MoveList[9]; // 9 pos sqs on board
+	int MoveList[49]; // 9 pos sqs on board
 	int MoveCount = 0; // count of move
 	int bestScore = -2;
 	int score = -2; // current score of move
 	int bestMove = -1; // best move with score
 	int Move; // current move
 	int index; // indexing for loop
-
-float message [score];    /* message buffer               */
-  int rank[MSGLEN],                  /* rank of task in communicator */
-      i;
-  MPI_Status status;         /* status of communication      */
-  struct timeval tbegin,     /* used to measure elapsed time */
-                 tend;
-
-MPI_Comm_rank( MPI_COMM_WORLD, &rank );
-//  printf ( " Process %d initialized\n", rank );
-
- if ( rank == 0 )  {
-   for (i=0; i<MSGLEN; i++) message[i] = 100;
 
 	if(ply > maxPly) // if current pos depper than max dep
  		 maxPly = ply; // max ply set to current pos	
@@ -135,27 +127,21 @@ MPI_Comm_rank( MPI_COMM_WORLD, &rank );
 		score = EvalForWin(board, side); // is current pos a win
 		if(score != 0) { // if draw					
 			return score; // return score, stop searching, game won
-		}			
+		}		
 	}
-printf ( " Task %d sending message\n", rank );
-    gettimeofday ( &tbegin, (struct timezone*)0 );
-    MPI_Send ( message, MSGLEN, MPI_FLOAT, 1, TAG, MPI_COMM_WORLD );
-    gettimeofday ( &tend, (struct timezone*)0 );   
-    print_time ( tbegin, tend );
-}
-
+	
 	// if no win, fill Move List
-	for(index = 0; index < 9; ++index) {
+	for(index = 0; index < 49; ++index) {
 		if( board[ConvertTo25[index]] == EMPTY) {
-			MoveList[MoveCount++] = ConvertTo25[index]; // current pos on loop
-		}
+	MoveList[MoveCount++] = ConvertTo25[index]; // current pos on loop
+}
 	}
 	
 	// loop all moves - put on board
-	for(index = 0; index < MoveCount; ++index) {
+	for(index = 0; index < MoveCount/35; ++index) {
 		Move = MoveList[index];
 		board[Move] = side;	
-		
+
 		ply++; // increment ply
 		score = -MinMax(board, side^1); // for opposing side
 		if(score > bestScore) { // if score is best score (will be for first move)			
@@ -168,9 +154,8 @@ printf ( " Task %d sending message\n", rank );
 	}
 	// tackle  move count is 0 as board is full
 	if(MoveCount==0) {
-		bestScore = FindThreeInARowAllBoard(board, side);		
+		bestScore = FindThreeInARowAllBoard(board, side);	
 }
-
 	// if not at top at tree, we return score
 	if(ply!=0)
 		return bestScore;	
@@ -178,25 +163,77 @@ printf ( " Task %d sending message\n", rank );
 		return bestMove;	
 }
 
-void print_time ( struct timeval tbegin, struct timeval tend )
-{
-  int dt;
-  dt = ( tend.tv_sec - tbegin.tv_sec ) * 1000000 + tend.tv_usec 
-    - tbegin.tv_usec;
-  printf ( " Elapsed time for send = %8d uSec\n", dt );
+int MinMax2 (int	*board, int side) {      
+// recursive function calling -	min max	will call again	and again through tree - to maximise score
+// check if there is a win
+// generate tree for all move for side (ply or opp)
+// loop	moves , make move, min max on move to get score
+// assess best score
+// end moves return bestscore
+	
+// defintions
+	int MoveList[49]; // 9 pos sqs on board
+	int MoveCount = 0; // count of move
+	int bestScore = -2;
+	int score = -2; // current score of move
+	int bestMove = -1; // best move with score
+	int Move; // current move
+	int index; // indexing for loop
+
+	if(ply > maxPly) // if current pos depper than max dep
+ 		 maxPly = ply; // max ply set to current pos	
+	positions++; // increment positions, as visited new position
+	
+	if(ply > 0) {
+		score = EvalForWin(board, side); // is current pos a win
+		if(score != 0) { // if draw					
+			return score; // return score, stop searching, game won
+		}		
+	}
+	
+	// if no win, fill Move List
+	for(index = 0; index < 49; ++index) {
+		if( board[ConvertTo25[index]] == EMPTY) {
+	MoveList[MoveCount++] = ConvertTo25[index]; // current pos on loop
+}
+	}
+	
+	// loop all moves - put on board
+	for(index = 0; index < MoveCount/35; ++index) {
+		Move = MoveList[index];
+		board[Move] = side;	
+
+		ply++; // increment ply
+		score = -MinMax(board, side^1); // for opposing side
+		if(score > bestScore) { // if score is best score (will be for first move)			
+			bestScore = score;	
+			bestMove = Move;
+		}
+	// undo moves
+		board[Move] = EMPTY; // else clear board
+		ply--; // decrement ply
+	}
+	// tackle  move count is 0 as board is full
+	if(MoveCount==0) {
+		bestScore = FindThreeInARowAllBoard(board, side);	
+}
+	// if not at top at tree, we return score
+	if(ply!=0)
+		return bestScore;	
+	else 
+		return bestMove;	
 }
 
 void InitialiseBoard (int *board) { /* pointer to our board array */ 
 	int index = 0; /* index for looping */
 
-	for (index = 0; index < 25; ++index) {
+	for (index = 0; index < 82; ++index) {
 		board[index] = BORDER; /* all squares to border square */
 	}
-
-	for (index = 0; index < 9; ++index) {
+	for (index = 0; index < loopcount; ++index) {
 		board[ConvertTo25[index]] = EMPTY /* all squares to empty */;
 	}
-	}
+}
 
 void PrintBoard(const int *board) {
 
@@ -204,8 +241,8 @@ void PrintBoard(const int *board) {
 	char pceChars[] = "OX|-";/* board chars */	
 	
 	printf("\n\nBoard:\n\n");
-	for(index = 0; index < 9; ++index) { /* for the 9 pos on board */
-		if(index!=0 && index%3==0) { /* if 3 pos on each line */
+	for(index = 0; index < 49; ++index) { /* for the 9 pos on board */
+		if(index!=0 && index%7==0) { /* if 3 pos on each line */
 			printf("\n\n");
 		}
 		printf("%4c",pceChars[board[ConvertTo25[index]]]);
@@ -219,7 +256,7 @@ int GetNextBest(const int *board) {
 /* place priority on corners, if corners not available */
 /* then make random move */
 
-	int ourMove = ConvertTo25[InMiddle]; // set move to middle
+int ourMove = ConvertTo25[InMiddle]; // set move to middle
 	if(board[ourMove] == EMPTY) {
 		return ourMove; // if board empty place in middle
 	}
@@ -233,8 +270,7 @@ int GetNextBest(const int *board) {
 			break;
 		}
 		ourMove = -1;
-	}
-	
+	}	
 	return ourMove;
 }
 
@@ -244,7 +280,7 @@ int GetWinningMove(int *board, const int side) {
 	int winFound = 0;
 	int index = 0;
 	
-	for(index = 0; index < 9; ++index) {
+	for(index = 0; index < loopcount; ++index) {
 		if( board[ConvertTo25[index]] == EMPTY) {
 			ourMove = ConvertTo25[index];
 			board[ourMove] = side;
@@ -268,81 +304,21 @@ int GetComputerMove(int *board, const int side) {
 	maxPly=0;
 	int best = MinMax(board, side);
 	printf("Finished searching through positions in tree:%d max depth:%d best move:%d\n",positions,maxPly,best);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
-=======
->>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
-=======
->>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
-// Get the name of the processor
-    char processor_name[MPI_MAX_PROCESSOR_NAME];
-    int name_len;
-    MPI_Get_processor_name(processor_name, &name_len);
-printf(processor_name);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
-=======
->>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
-=======
->>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
-=======
->>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
 	return best;
 }
 
-int GetHumanMove(const int *board) {
-	
-	char userInput[4];
-	
-	int moveOk = 0;
-	int move = -1;
-	
-	while (moveOk == 0) {
-	
-		printf("Please enter a move from 1 to 9:");		
-		fgets(userInput, 3, stdin);
-		fflush(stdin); /* fgets take first 3 chars and flush rest */ 
-		
-		if(strlen(userInput) != 2) {
-			printf("Shucks! You entered an invalid strlen()! \n");
-			continue;			
-		}
-		
-		if( sscanf(userInput, "%d", &move) != 1) {
-			move = -1;
-			printf("Shucks! You entered an invalid sscanf()! \n");
-			continue;
-		}
-		
-		if( move < 1 || move > 9) {
-			move = -1;
-			printf("Shucks! You entered an invalid range! \n");
-			continue;
-		}
-		
-		move--; // Zero indexing
-		
-		if( board[ConvertTo25[move]]!=EMPTY) {
-			move=-1;
-			printf("Shucks! Square not available\n");
-			continue;
-		}
-		moveOk = 1;
-	}
-	printf("You are selecting position...%d\n",(move+1));
-	return ConvertTo25[move];
+int GetHumanMove(int *board, const int side) {
+        ply=0;
+	positions=0;
+        maxPly=0;
+        int best = MinMax2(board, side);
+        printf("Finished searching through positions in tree:%d max depth:%d best");
+        return best;
 }
 
 int HasEmpty(const int *board) { /* Has board got empty sq */
 	int index = 0;
-	for (index = 0; index < 9; ++index) {
+	for (index = 0; index < loopcount; ++index) {
 		if( board[ConvertTo25[index]] == EMPTY) return 1;
 	}
 	return 0;
@@ -357,16 +333,22 @@ printf("%s TIC TAC TOE \n", KRED);
 	int GameOver = 0;
 	int Side = NOUGHTS;
 	int LastMoveMade = 0;
-	int board[25];
+	int board[82];
 
 	InitialiseBoard(&board[0]);
 	PrintBoard(&board[0]);
 
 	while (!GameOver) { // while game is not over
 	if (Side==NOUGHTS) {
-		LastMoveMade = GetHumanMove (&board[0]);
+struct timeval tv3, tv4;
+gettimeofday(&tv3, NULL);
+		LastMoveMade = GetHumanMove (&board[0], Side);
 		MakeMove(&board[0], LastMoveMade, Side);
 		Side=CROSSES;
+gettimeofday(&tv4, NULL);
+printf ("Total time = %f seconds\n",
+         (double) (tv4.tv_usec - tv3.tv_usec) / 1000000 +
+         (double) (tv4.tv_sec - tv3.tv_sec));
 printf("%s COMPUTER MOVE \n", KBLU);	
 }
 	else {
@@ -375,7 +357,6 @@ printf("%s COMPUTER MOVE \n", KBLU);
 	Side=NOUGHTS;
 	PrintBoard(&board[0]);
 printf("%s PLAYER MOVE \n", KNRM);
-
 	}
 
 // if three in a row exists Game is over
@@ -396,10 +377,30 @@ printf("%s PLAYER MOVE \n", KNRM);
 }
 	}
 	}
+int main (int argc, char**  argv) {
 
-int main(int argc, char** argv) {
- MPI_Init( &argc, &argv );
+// Initialize the MPI environment
+struct timeval tv1, tv2;
+gettimeofday(&tv1, NULL);
 	srand(time(NULL)); /* seed random no generator - moves on board randomly */
 	RunGame();
+gettimeofday(&tv2, NULL);
+printf ("Total time = %f seconds\n",
+         (double) (tv2.tv_usec - tv1.tv_usec) / 1000000 +
+         (double) (tv2.tv_sec - tv1.tv_sec));
 	return 0;
-	}
+
+// Initialize the MPI environment
+  MPI_Init(NULL, NULL);
+  // Find out rank, size
+  int world_rank;
+  MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+  int world_size;
+  MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+
+  // We are assuming at least 2 processes for this task
+  if (world_size != 2) {
+    fprintf(stderr, "World size must be two for %s\n", argv[0]);
+    MPI_Abort(MPI_COMM_WORLD, 1);
+}
+	}	
