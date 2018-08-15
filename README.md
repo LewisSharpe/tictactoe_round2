@@ -49,12 +49,27 @@ Parallel variants of the sequential algorithm were implemented using shared meme
 	      (through gcc) compile: gcc -o ttt ttt.c
 			    execute: ./ttt 
               (through bash script) compile and execute: sbatch bash.sh 
+<<<<<<< HEAD
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file
+=======
+<<<<<<< HEAD
+              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
+                                    compile and execute: sbatch sepnumbat.sh
+                                    view output generated: see generated .out file
+=======
+<<<<<<< HEAD
+              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
+                                    compile and execute: sbatch sepnumbat.sh
+                                    view output generated: see generated .out file
+=======
+>>>>>>> 8bf6052e25bc27896d7e473a1260c348f17451d1
+>>>>>>> 1ccf2bcedd39bff65739a7b7dc7bf6880ceac041
+>>>>>>> fd029dbb2784359a995e72de50b97d28bf53460b
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm)
                                     compile and execute: sbatch numbat.sh
                                     view output generated: nano numbat.txt  
@@ -65,12 +80,27 @@ Parallel variants of the sequential algorithm were implemented using shared meme
 			    execute: ./ttt_pt
               (through bash script) compile and execute: sbatch bash.sh
 				    view output generated: nano output.txt
+<<<<<<< HEAD
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file
+=======
+<<<<<<< HEAD
+              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
+                                    compile and execute: sbatch sepnumbat.sh
+                                    view output generated: see generated .out file
+=======
+<<<<<<< HEAD
+              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
+                                    compile and execute: sbatch sepnumbat.sh
+                                    view output generated: see generated .out file
+=======
+>>>>>>> 8bf6052e25bc27896d7e473a1260c348f17451d1
+>>>>>>> 1ccf2bcedd39bff65739a7b7dc7bf6880ceac041
+>>>>>>> fd029dbb2784359a995e72de50b97d28bf53460b
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm) 
                                     compile and execute: sbatch numbat.sh
                                     view output generated: nano numbat.txt  
@@ -80,12 +110,27 @@ Parallel variants of the sequential algorithm were implemented using shared meme
 			    execute: ./ttt_omp
               (through bash script) compile and execute: sbatch bash.sh 
 				    view output generated: nano output.txt
+<<<<<<< HEAD
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file
+=======
+<<<<<<< HEAD
+              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
+                                    compile and execute: sbatch sepnumbat.sh
+                                    view output generated: see generated .out file
+=======
+<<<<<<< HEAD
+              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
+                                    compile and execute: sbatch sepnumbat.sh
+                                    view output generated: see generated .out file
+=======
+>>>>>>> 8bf6052e25bc27896d7e473a1260c348f17451d1
+>>>>>>> 1ccf2bcedd39bff65739a7b7dc7bf6880ceac041
+>>>>>>> fd029dbb2784359a995e72de50b97d28bf53460b
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm)
                                     compile and execute: sbatch numbat.sh
                                     view output generated: nano numbat.txt  
@@ -103,6 +148,10 @@ The above variants of the Minimax Algorithm implemented were ran on the followin
 ![exp2](images/exp2.png)
 .
 
+<<<<<<< HEAD
  
 
+=======
+## Experimental Computational Speedup Results 
+>>>>>>> fd029dbb2784359a995e72de50b97d28bf53460b
 
