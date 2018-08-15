@@ -49,9 +49,12 @@ Parallel variants of the sequential algorithm were implemented using shared meme
 	      (through gcc) compile: gcc -o ttt ttt.c
 			    execute: ./ttt 
               (through bash script) compile and execute: sbatch bash.sh 
+<<<<<<< HEAD
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file
+=======
+>>>>>>> 8bf6052e25bc27896d7e473a1260c348f17451d1
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm)
                                     compile and execute: sbatch numbat.sh
                                     view output generated: nano numbat.txt  
@@ -62,9 +65,12 @@ Parallel variants of the sequential algorithm were implemented using shared meme
 			    execute: ./ttt_pt
               (through bash script) compile and execute: sbatch bash.sh
 				    view output generated: nano output.txt
+<<<<<<< HEAD
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file
+=======
+>>>>>>> 8bf6052e25bc27896d7e473a1260c348f17451d1
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm) 
                                     compile and execute: sbatch numbat.sh
                                     view output generated: nano numbat.txt  
@@ -74,9 +80,12 @@ Parallel variants of the sequential algorithm were implemented using shared meme
 			    execute: ./ttt_omp
               (through bash script) compile and execute: sbatch bash.sh 
 				    view output generated: nano output.txt
+<<<<<<< HEAD
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file
+=======
+>>>>>>> 8bf6052e25bc27896d7e473a1260c348f17451d1
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm)
                                     compile and execute: sbatch numbat.sh
                                     view output generated: nano numbat.txt  
