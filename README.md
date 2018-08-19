@@ -46,69 +46,21 @@ Parallel variants of the sequential algorithm were implemented using shared meme
 ## How to compile files: 
 
 ### Sequential:
-<<<<<<< HEAD
 	      (through gcc) compile: gcc -o ttt ttt.c
 			    execute: ./ttt 
               (through bash script) compile and execute: sbatch bash.sh 
-<<<<<<< HEAD
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
-                                    compile and execute: sbatch sepnumbat.sh
-                                    view output generated: see generated .out file
-=======
-<<<<<<< HEAD
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
-                                    compile and execute: sbatch sepnumbat.sh
-                                    view output generated: see generated .out file
-=======
-<<<<<<< HEAD
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
-                                    compile and execute: sbatch sepnumbat.sh
-                                    view output generated: see generated .out file
-=======
->>>>>>> 8bf6052e25bc27896d7e473a1260c348f17451d1
->>>>>>> 1ccf2bcedd39bff65739a7b7dc7bf6880ceac041
->>>>>>> fd029dbb2784359a995e72de50b97d28bf53460b
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm)
-                                    compile and execute: sbatch numbat.sh
-                                    view output generated: nano numbat.txt  
-                
-
 ### PThreads: 
 	      (through gcc) compile: gcc -o ttt_pt ttt_pt.c -lpthread 	
 			    execute: ./ttt_pt
               (through bash script) compile and execute: sbatch bash.sh
 				    view output generated: nano output.txt
-<<<<<<< HEAD
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
-                                    compile and execute: sbatch sepnumbat.sh
-                                    view output generated: see generated .out file
-=======
-<<<<<<< HEAD
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
-                                    compile and execute: sbatch sepnumbat.sh
-                                    view output generated: see generated .out file
-=======
-<<<<<<< HEAD
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
-                                    compile and execute: sbatch sepnumbat.sh
-                                    view output generated: see generated .out file
-=======
->>>>>>> 8bf6052e25bc27896d7e473a1260c348f17451d1
->>>>>>> 1ccf2bcedd39bff65739a7b7dc7bf6880ceac041
->>>>>>> fd029dbb2784359a995e72de50b97d28bf53460b
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm) 
-                                    compile and execute: sbatch numbat.sh
-                                    view output generated: nano numbat.txt  
-
 ### OpenMP: 
-=======
-
               (through gcc) compile: gcc -o ttt ttt.c
 			    execute: ./ttt 
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to output.txt) 					compile and execute: sbatch bash.sh 
@@ -117,55 +69,6 @@ Parallel variants of the sequential algorithm were implemented using shared meme
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file   
 
-### PThreads:      
-
-	      (through gcc) compile: gcc -o ttt_pt ttt_pt.c -lpthread 	
-			    execute: ./ttt_pt
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to output.txt)                 					compile and execute: sbatch bash.sh
-				    view output generated: nano output.txt
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
-                                    compile and execute: sbatch sepnumbat.sh
-                                    view output generated: see generated .out file
-             
-### OpenMP: 
-
->>>>>>> 1cffbe0ac9154b0667ecaaf64656b14a96c3b937
-              (through gcc) compile: gcc -fopenmp -o ttt_omp ttt_omp.c 
-			    execute: ./ttt_omp
-              (through bash script) compile and execute: sbatch bash.sh 
-				    view output generated: nano output.txt
-<<<<<<< HEAD
-<<<<<<< HEAD
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
-                                    compile and execute: sbatch sepnumbat.sh
-                                    view output generated: see generated .out file
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
-                                    compile and execute: sbatch sepnumbat.sh
-                                    view output generated: see generated .out file
-=======
-<<<<<<< HEAD
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
-                                    compile and execute: sbatch sepnumbat.sh
-                                    view output generated: see generated .out file
-=======
-<<<<<<< HEAD
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
-                                    compile and execute: sbatch sepnumbat.sh
-                                    view output generated: see generated .out file
-=======
->>>>>>> 8bf6052e25bc27896d7e473a1260c348f17451d1
->>>>>>> 1ccf2bcedd39bff65739a7b7dc7bf6880ceac041
->>>>>>> fd029dbb2784359a995e72de50b97d28bf53460b
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm)
-                                    compile and execute: sbatch numbat.sh
-                                    view output generated: nano numbat.txt  
-
-=======
-              (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
-                                    compile and execute: sbatch sepnumbat.sh
-                                    view output generated: see generated .out file
-         
->>>>>>> 1cffbe0ac9154b0667ecaaf64656b14a96c3b937
 ## Utilisation of Experimental Hardware Setups
 
 The above variants of the Minimax Algorithm implemented were ran on the following shared memory machines with their specifications presented below.
@@ -177,17 +80,6 @@ The above variants of the Minimax Algorithm implemented were ran on the followin
 **Experimental Setup 2 - AMD OperatonTM Processor 6438 (48 cores) hardware specification:**
 
 ![exp2](images/exp2.png)
-<<<<<<< HEAD
-.
 
-<<<<<<< HEAD
- 
-
-=======
 ## Experimental Computational Speedup Results 
->>>>>>> fd029dbb2784359a995e72de50b97d28bf53460b
-=======
-..
-
->>>>>>> 1cffbe0ac9154b0667ecaaf64656b14a96c3b937
 
