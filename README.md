@@ -81,5 +81,3 @@ The above variants of the Minimax Algorithm implemented were ran on the followin
 
 ![exp2](images/exp2.png)
 
-## Experimental Computational Speedup Results 
-
