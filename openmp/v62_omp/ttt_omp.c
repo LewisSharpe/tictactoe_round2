@@ -372,13 +372,18 @@ for (i=0;i<NUM_THREADS;i++)
 
 	while (!GameOver) { // while game is not over
 	if (Side==NOUGHTS) {
+<<<<<<< HEAD
 struct timeval tv3, tv4;
 gettimeofday(&tv3, NULL);  	
 	LastMoveMade = GetHumanMove (&board[0], Side);
+=======
+  		LastMoveMade = GetHumanMove (&board[0], Side);
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
 		MakeMove(&board[0], LastMoveMade, Side);
 		Side=CROSSES;
  int tid = omp_get_thread_num();
         printf("\n from omp thread %d\n", tid);
+<<<<<<< HEAD
   gettimeofday(&tv4, NULL);
 printf ("Total time = %f seconds\n",
          (double) (tv4.tv_usec - tv3.tv_usec) / 1000000 +
@@ -388,16 +393,24 @@ printf("%s COMPUTER MOVE \n", KRED);
 	else {
 struct timeval tv5, tv6;
 gettimeofday(&tv5, NULL);
+=======
+printf("%s COMPUTER MOVE \n", KBLU);	
+}
+	else {
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
 	LastMoveMade = GetComputerMove(&board[0], Side);
 	MakeMove(&board[0], LastMoveMade, Side);
 	Side=NOUGHTS;
 	PrintBoard(&board[0]);
 int tid1 = omp_get_thread_num();
         printf("\n from omp thread %d\n", tid1);
+<<<<<<< HEAD
    gettimeofday(&tv6, NULL);
 printf ("Total time = %f seconds\n",
          (double) (tv6.tv_usec - tv5.tv_usec) / 1000000 +
 (double) (tv6.tv_sec - tv5.tv_sec));
+=======
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
 printf("%s PLAYER MOVE \n", KNRM);
 	}
 		}

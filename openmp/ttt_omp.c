@@ -364,8 +364,11 @@ printf("%s TIC TAC TOE \n", KRED);
 	int board[82];
 	int i;
 
+<<<<<<< HEAD
 struct timeval tv3, tv4, tv5, tv6;
 
+=======
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
 #pragma omp parallel for
 for (i=0;i<NUM_THREADS;i++)
 {
@@ -374,11 +377,15 @@ for (i=0;i<NUM_THREADS;i++)
 
 	while (!GameOver) { // while game is not over
 	if (Side==NOUGHTS) {
+<<<<<<< HEAD
 gettimeofday(&tv3, NULL);
+=======
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
   		LastMoveMade = GetHumanMove (&board[0], Side);
 		MakeMove(&board[0], LastMoveMade, Side);
 		Side=CROSSES;
  int tid = omp_get_thread_num();
+<<<<<<< HEAD
         printf("\n from omp thread %d\n", tid);
    gettimeofday(&tv4, NULL);
 printf ("Total time = %f seconds\n",
@@ -388,11 +395,30 @@ printf("%s COMPUTER MOVE \n", KRED);
 }
 	else {
 gettimeofday(&tv5, NULL);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        printf("\n handled by omp thread %d\n", tid);
+=======
+        printf("\n from omp thread %d\n", tid);
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
+        printf("\n from omp thread %d\n", tid);
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
+        printf("\n from omp thread %d\n", tid);
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+printf("%s COMPUTER MOVE \n", KBLU);	
+}
+	else {
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
 	LastMoveMade = GetComputerMove(&board[0], Side);
 	MakeMove(&board[0], LastMoveMade, Side);
 	Side=NOUGHTS;
 	PrintBoard(&board[0]);
 int tid1 = omp_get_thread_num();
+<<<<<<< HEAD
         printf("\n handled by omp thread %d\n", tid1);
    gettimeofday(&tv6, NULL);
 printf ("Total time = %f seconds\n",
@@ -400,6 +426,32 @@ printf ("Total time = %f seconds\n",
 (double) (tv6.tv_sec - tv5.tv_sec));
 printf("%s PLAYER MOVE \n", KNRM);
 				}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        printf("\n handled by omp thread %d\n", tid1);
+printf("%s PLAYER MOVE \n", KNRM);
+	}
+	 }
+=======
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+        printf("\n from omp thread %d\n", tid1);
+printf("%s PLAYER MOVE \n", KNRM);
+	}
+		}
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+			}
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
 // if three in a row exists Game is over
 		if( FindThreeInARow(board, LastMoveMade, Side ^ 1) == 3) {
 			printf("Game over!\n");
@@ -415,9 +467,13 @@ printf("%s PLAYER MOVE \n", KNRM);
 	GameOver = 1;
 	printf("It's a draw! Come on, try harder for the win next time!");
 	}
+<<<<<<< HEAD
       }
      }
     }
+=======
+}
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
 
 int main() {
 struct timeval tv1, tv2;
@@ -431,4 +487,7 @@ printf ("Total time = %f seconds\n",
 	return 0;
 	}	
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
