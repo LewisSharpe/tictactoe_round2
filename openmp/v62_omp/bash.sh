@@ -1,8 +1,5 @@
 #!/bin/bash
-<<<<<<< HEAD
 # This script run the Minimax algorithm and print the resulting output to the file 'output.txt' .
-=======
->>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
 #
 #SBATCH --job-name=test_omp
 #SBATCH --output=ttt_omp.txt

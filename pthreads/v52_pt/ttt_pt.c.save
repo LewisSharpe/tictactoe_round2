@@ -3,7 +3,6 @@
 // 25.08.2017 
 // compile: gcc -o ttt_pt ttt_pt.c -lpthread
 // run: ./ttt_pt
-
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
@@ -20,11 +19,9 @@
 #define KMAG  "\x1B[35m"
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
-
 /* enum int const chars */
 enum { NOUGHTS, CROSSES, BORDER, EMPTY };
 enum { HUMANWIN, COMPWIN, DRAW };
-
 int loopcount = 49;
 /* var definitions */
 const int Directions[4] = {1, 7, 8, 14}; // 1 7 8 14  
@@ -218,7 +215,7 @@ pthread_t thr[NUM_THREADS];
 	for(index = 0; index < MoveCount/35; ++index) {
 		Move = MoveList[index];
 		board[Move] = side;	
- 		ply++; // increment ply
+		ply++; // increment ply
 		score = -MinMax(board, side^1); // for opposing side
 		if(score > bestScore) { // if score is best score (will be for first move)			
 			bestScore = score;	
@@ -343,7 +340,6 @@ void MakeMove (int *board, const int sq, const side) {
 void *thr_func(void *arg) {
 printf("%s TIC TAC TOE \n", KRED);
 struct timeval thr_func1, thr_func2;
-gettimeofday(&thr_func1, NULL);
  thread_data_t *data = (thread_data_t *)arg;
 	int GameOver = 0;
 	int Side = NOUGHTS;
@@ -371,11 +367,6 @@ printf("%s COMPUTER MOVE \n", KRED);
 	PrintBoard(&board[0]);
 printf("%s PLAYER MOVE \n", KNRM);
 	}
- printf("handled by thread, thread id: %d\n", data->tid);
-gettimeofday(&thr_func2, NULL);
-printf ("elapsed time performing move: = %f seconds\n",
-         (double) (thr_func2.tv_usec - thr_func1.tv_usec) / 1000000 +
-         (double) (thr_func2.tv_sec - thr_func1.tv_sec));
 // if three in a row exists Game is over
 		if( FindThreeInARow(board, LastMoveMade, Side ^ 1) == 3) {
 			printf("Game over!\n");
@@ -389,33 +380,32 @@ printf ("elapsed time performing move: = %f seconds\n",
 	if(!HasEmpty(board)) {
 	printf("Game Over! I know, it's a shame it can't last forever! \n");
 	GameOver= 1;
+printf("handled by thread, thread id: %d\n", data->tid);
+gettimeofday(&thr_func2, NULL);
+printf ("time of move: = %f seconds\n",
+         (double) (thr_func2.tv_usec - thr_func1.tv_usec) / 1000000 +
+         (double) (thr_func2.tv_sec - thr_func1.tv_sec));
 	printf("It's a draw! Come on, try harder for the win next time!");
 }
+printf("handled by thread, thread id: %d\n", data->tid); 
+gettimeofday(&thr_func2, NULL);
+printf ("time of move: = %f seconds\n",
+         (double) (thr_func2.tv_usec - thr_func1.tv_usec) / 1000000 +
+         (double) (thr_func2.tv_sec - thr_func1.tv_sec));
 }
 pthread_exit(NULL);
 }
 
 int main() {
 struct timeval tv1, tv2;
-gettimeofday(&tv1);
-<<<<<<< HEAD
-pthread_t thr[NUM_THREADS];
-  int i, rc;
-struct timeval thr_sta[i], thr_end[i];
-gettimeofday(&thr_sta[i], NULL);
-  /* create a thread_data_t argument array */
-  thread_data_t thr_data[NUM_THREADS];
-	srand(time(NULL)); /* seed random no generator - moves on board randomly */
-=======
 struct timeval thr1, thr2;
+gettimeofday(&tv1, NULL);
 	srand(time(NULL)); /* seed random no generator - moves on board randomly */
 pthread_t thr[NUM_THREADS];
   int i, rc;
   /* create a thread_data_t argument array */
   thread_data_t thr_data[NUM_THREADS];
-
-gettimeofday(&thr[i], NULL);
->>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
+ 
   /* create threads */
   for (i = 0; i < NUM_THREADS; ++i) {
     thr_data[i].tid = i;
@@ -423,21 +413,13 @@ gettimeofday(&thr[i], NULL);
       fprintf(stderr, "error: pthread_create, rc: %d\n", rc);
       return EXIT_FAILURE;
     }
-  }  
- /* block until all threads complete */
-  for (i = 0; i < NUM_THREADS; ++i) {
+  }  /* block until all threads complete */
+  for (i = 0; i <  NUM_THREADS; ++i) {
     pthread_join(thr[i], NULL);
-  }
 gettimeofday(&tv2, NULL);
-printf ("Elapsed game time = %f seconds\n",
+printf ("Total time = %f seconds\n",
          (double) (tv2.tv_usec - tv1.tv_usec) / 1000000 +
-         (double) (tv2.tv_sec - tv1.tv_sec));
-<<<<<<< HEAD
-gettimeofday(&thr_end, NULL);
-printf ("ELAPSED thread time =  %f seconds\n",
-         (double) (thr_end[i].tv_usec - thr_sta[i].tv_usec) / 1000000 +
-         (double) (thr_end[i].tv_sec - thr_sta[i].tv_sec));
-=======
->>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
-return EXIT_SUCCESS;
+         (double) (tv2.tv_sec - tv1.tv_sec)); 
+  return EXIT_SUCCESS;
 } 
+}

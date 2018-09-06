@@ -151,8 +151,11 @@ int MinMax2 (int	*board, int side) {
 /* OMP parallel section segment - each section in the parallel sections
 section is excecuted in parallel */
 
+<<<<<<< HEAD
 #pragma omp parallel 
 {
+=======
+>>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
 #pragma omp parallel sections
 {
  #pragma omp section
@@ -170,7 +173,11 @@ section is excecuted in parallel */
 }
 } // end parallel section
 } // end parallel sections segment
+<<<<<<< HEAD
 }
+=======
+
+>>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
 	// if not at top at tree, we return score
 	if(ply!=0)
 		return bestScore;	
@@ -366,7 +373,16 @@ printf("%s TIC TAC TOE \n", KRED);
 	int board[82];
 	int i;
 
+<<<<<<< HEAD
 #pragma omp parallel
+=======
+<<<<<<< HEAD
+struct timeval tv3, tv4, tv5, tv6;
+
+=======
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+#pragma omp parallel for
+>>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
 for (i=0;i<NUM_THREADS;i++)
 {
 	InitialiseBoard(&board[0]);
@@ -374,18 +390,57 @@ for (i=0;i<NUM_THREADS;i++)
 
 	while (!GameOver) { // while game is not over
 	if (Side==NOUGHTS) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+gettimeofday(&tv3, NULL);
+=======
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+>>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
   		LastMoveMade = GetHumanMove (&board[0], Side);
 		MakeMove(&board[0], LastMoveMade, Side);
 		Side=CROSSES;
  int tid = omp_get_thread_num();
+<<<<<<< HEAD
         printf("\n from omp thread %d\n", tid);
 printf("%s COMPUTER MOVE \n", KBLU);	
 }
 	else {
+=======
+<<<<<<< HEAD
+        printf("\n from omp thread %d\n", tid);
+   gettimeofday(&tv4, NULL);
+printf ("Total time = %f seconds\n",
+         (double) (tv4.tv_usec - tv3.tv_usec) / 1000000 +
+(double) (tv4.tv_sec - tv3.tv_sec));
+printf("%s COMPUTER MOVE \n", KRED);	
+}
+	else {
+gettimeofday(&tv5, NULL);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        printf("\n handled by omp thread %d\n", tid);
+=======
+        printf("\n from omp thread %d\n", tid);
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
+        printf("\n from omp thread %d\n", tid);
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
+        printf("\n from omp thread %d\n", tid);
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+printf("%s COMPUTER MOVE \n", KBLU);	
+}
+	else {
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+>>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
 	LastMoveMade = GetComputerMove(&board[0], Side);
 	MakeMove(&board[0], LastMoveMade, Side);
 	Side=NOUGHTS;
 	PrintBoard(&board[0]);
+<<<<<<< HEAD
 printf("%s PLAYER MOVE \n", KNRM);
 	}
 int i; 
@@ -399,6 +454,43 @@ double wtime = omp_get_wtime();
 
 		}
 			}
+=======
+int tid1 = omp_get_thread_num();
+<<<<<<< HEAD
+        printf("\n handled by omp thread %d\n", tid1);
+   gettimeofday(&tv6, NULL);
+printf ("Total time = %f seconds\n",
+         (double) (tv6.tv_usec - tv5.tv_usec) / 1000000 +
+(double) (tv6.tv_sec - tv5.tv_sec));
+printf("%s PLAYER MOVE \n", KNRM);
+				}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        printf("\n handled by omp thread %d\n", tid1);
+printf("%s PLAYER MOVE \n", KNRM);
+	}
+	 }
+=======
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+        printf("\n from omp thread %d\n", tid1);
+printf("%s PLAYER MOVE \n", KNRM);
+	}
+		}
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+=======
+>>>>>>> 38056ad38a8d5709b4834cdb17594e2f1633ff25
+			}
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+>>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
 // if three in a row exists Game is over
 		if( FindThreeInARow(board, LastMoveMade, Side ^ 1) == 3) {
 			printf("Game over!\n");
@@ -414,7 +506,17 @@ double wtime = omp_get_wtime();
 	GameOver = 1;
 	printf("It's a draw! Come on, try harder for the win next time!");
 	}
+<<<<<<< HEAD
 }
+=======
+<<<<<<< HEAD
+      }
+     }
+    }
+=======
+}
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+>>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
 
 int main() {
 struct timeval tv1, tv2;
@@ -428,3 +530,10 @@ printf ("Total time = %f seconds\n",
 	return 0;
 	}	
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+>>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
