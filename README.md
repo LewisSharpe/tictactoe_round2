@@ -28,10 +28,14 @@ The algorithm embeds recursive function calling, as such the MinMax method will 
 
 ### Parallel:
 <<<<<<< HEAD
+<<<<<<< HEAD
 Parallel variants of the sequential algorithm were implemented using shared mememory programming paradigms OpenMP and PThreads. The individual aspects of each implementation are described below.
 =======
 Parallel variants of the sequential algorithm were implemented using shared memory programming paradigms OpenMP and PThreads. The individual aspects of each implementation are described below.
 >>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
+=======
+Parallel variants of the sequential algorithm were implemented using shared memory programming paradigms OpenMP and PThreads. The individual aspects of each implementation are described below.
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
 
 **PThreads:**
 - definition of 'NUM_THREADS' construct which sets the number of threads avaible to the execution of the program;
@@ -50,6 +54,7 @@ Parallel variants of the sequential algorithm were implemented using shared memo
 ## How to compile files: 
 
 ### Sequential:
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -131,6 +136,8 @@ Parallel variants of the sequential algorithm were implemented using shared memo
 ### OpenMP: 
 >>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
 =======
+=======
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
 	      (through gcc) compile: gcc -o ttt ttt.c
 			    execute: ./ttt 
               (through bash script) compile and execute: sbatch bash.sh 
@@ -140,7 +147,10 @@ Parallel variants of the sequential algorithm were implemented using shared memo
                                     view output generated: see generated .out file
              
 ### OpenMP: 
+<<<<<<< HEAD
 >>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
+=======
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
               (through gcc) compile: gcc -o ttt ttt.c
 			    execute: ./ttt 
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to output.txt) 					compile and execute: sbatch bash.sh 
@@ -151,8 +161,11 @@ Parallel variants of the sequential algorithm were implemented using shared memo
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
+=======
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
 ### PThreads:      
 
 	      (through gcc) compile: gcc -o ttt_pt ttt_pt.c -lpthread 	
@@ -162,6 +175,7 @@ Parallel variants of the sequential algorithm were implemented using shared memo
               (through bash script that executes an iteration of specified runs of continous execution of the same algorithm to a newly created .out file)
                                     compile and execute: sbatch sepnumbat.sh
                                     view output generated: see generated .out file
+<<<<<<< HEAD
 <<<<<<< HEAD
              
 ### OpenMP: 
@@ -208,6 +222,9 @@ Parallel variants of the sequential algorithm were implemented using shared memo
 =======
 
 >>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
+=======
+
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
 ## Utilisation of Experimental Hardware Setups
 
 The above variants of the Minimax Algorithm implemented were ran on the following shared memory machines with their specifications presented below.
@@ -219,6 +236,7 @@ The above variants of the Minimax Algorithm implemented were ran on the followin
 **Experimental Setup 2 - AMD OperatonTM Processor 6438 (48 cores) hardware specification:**
 
 ![exp2](images/exp2.png)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -238,4 +256,6 @@ The above variants of the Minimax Algorithm implemented were ran on the followin
 >>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
 =======
 >>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
+=======
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
 

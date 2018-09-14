@@ -96,7 +96,10 @@ int EvalForWin(const int *board, const int us) {
 		return -1; // opp win confirmed
 	return 0;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
 int MinMax (int	*board, int side) {      
 // recursive function calling -	min max	will call again	and again through tree - to maximise score
 // check if there is a win
@@ -345,7 +348,10 @@ void *thr_func(void *arg) {
 printf("%s TIC TAC TOE \n", KRED);
 struct timeval thr_func1, thr_func2;
 gettimeofday(&thr_func1, NULL);
+<<<<<<< HEAD
  int i, rc;
+=======
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
  thread_data_t *data = (thread_data_t *)arg;
 	int GameOver = 0;
 	int Side = NOUGHTS;
@@ -398,6 +404,7 @@ pthread_exit(NULL);
 }
 
 int main() {
+<<<<<<< HEAD
 int i, rc;
 struct timespec begin, end;
 double elapsed;
@@ -407,6 +414,28 @@ clock_gettime(CLOCK_MONOTONIC, &begin);
 struct timeval thr1, thr2;
 	srand(time(NULL)); /* seed random no generator - moves on board randomly */
 pthread_t thr[NUM_THREADS];
+=======
+struct timeval tv1, tv2;
+gettimeofday(&tv1);
+<<<<<<< HEAD
+pthread_t thr[NUM_THREADS];
+  int i, rc;
+struct timeval thr_sta[i], thr_end[i];
+gettimeofday(&thr_sta[i], NULL);
+  /* create a thread_data_t argument array */
+  thread_data_t thr_data[NUM_THREADS];
+	srand(time(NULL)); /* seed random no generator - moves on board randomly */
+=======
+struct timeval thr1, thr2;
+	srand(time(NULL)); /* seed random no generator - moves on board randomly */
+pthread_t thr[NUM_THREADS];
+  int i, rc;
+  /* create a thread_data_t argument array */
+  thread_data_t thr_data[NUM_THREADS];
+
+gettimeofday(&thr[i], NULL);
+>>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
   /* create threads */
   for (i = 0; i < NUM_THREADS; ++i) {
     thr_data[i].tid = i;
@@ -419,6 +448,7 @@ pthread_t thr[NUM_THREADS];
   for (i = 0; i < NUM_THREADS; ++i) {
     pthread_join(thr[i], NULL);
   }
+<<<<<<< HEAD
 clock_gettime(CLOCK_MONOTONIC, &end);
 elapsed = end.tv_sec - begin.tv_sec;
 elapsed += (end.tv_nsec - begin.tv_nsec) / 1000000000.0;
@@ -426,3 +456,18 @@ printf("Elapsed game time = %lf seconds", elapsed);
 return EXIT_SUCCESS;
 } 
 
+=======
+gettimeofday(&tv2, NULL);
+printf ("Elapsed game time = %f seconds\n",
+         (double) (tv2.tv_usec - tv1.tv_usec) / 1000000 +
+         (double) (tv2.tv_sec - tv1.tv_sec));
+<<<<<<< HEAD
+gettimeofday(&thr_end, NULL);
+printf ("ELAPSED thread time =  %f seconds\n",
+         (double) (thr_end[i].tv_usec - thr_sta[i].tv_usec) / 1000000 +
+         (double) (thr_end[i].tv_sec - thr_sta[i].tv_sec));
+=======
+>>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
+return EXIT_SUCCESS;
+} 
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
