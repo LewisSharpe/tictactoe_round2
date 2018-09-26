@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 // Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
 // Lewis Sharpe
 // 25.08.2017 
@@ -184,6 +192,13 @@ int MinMax2 (int	*board, int side) {
 	int bestMove = -1; // best move with score
 	int Move; // current move
 	int index; // indexing for loop
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 /* pthreads defintions */
 pthread_t thr[NUM_THREADS];
   int i, rc;
@@ -338,8 +353,16 @@ void MakeMove (int *board, const int sq, const side) {
 /* thread function */
 void *thr_func(void *arg) {
 printf("%s TIC TAC TOE \n", KRED);
+<<<<<<< HEAD
 struct timeval thr1, thr2;
 thread_data_t *data = (thread_data_t *)arg;
+=======
+<<<<<<< HEAD
+struct timeval thr1, thr2;
+=======
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+ thread_data_t *data = (thread_data_t *)arg;
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 	int GameOver = 0;
 	int Side = NOUGHTS;
 	int LastMoveMade = 0;
@@ -357,7 +380,19 @@ gettimeofday(&tv3, NULL);
 printf ("Total time = %f seconds\n",
          (double) (tv4.tv_usec - tv3.tv_usec) / 1000000 +
          (double) (tv4.tv_sec - tv3.tv_sec));
+<<<<<<< HEAD
 printf("%s COMPUTER MOVE \n", KRED);		
+=======
+<<<<<<< HEAD
+printf("%s COMPUTER MOVE \n", KRED);		
+=======
+<<<<<<< HEAD
+printf("%s COMPUTER MOVE \n", KRED);	
+=======
+printf("%s COMPUTER MOVE \n", KBLU);	
+>>>>>>> 1cffbe0ac9154b0667ecaaf64656b14a96c3b937
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 }
 	else {
 	LastMoveMade = GetComputerMove(&board[0], Side);
@@ -378,6 +413,10 @@ printf("%s PLAYER MOVE \n", KNRM);
 		}	
 	if(!HasEmpty(board)) {
 	printf("Game Over! I know, it's a shame it can't last forever! \n");
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 	GameOver= 1;
 	printf("It's a draw! Come on, try harder for the win next time!");
 }
@@ -385,9 +424,39 @@ printf("%s PLAYER MOVE \n", KNRM);
 }
 pthread_exit(NULL);
 }
+<<<<<<< HEAD
 
 int main() {
 struct timeval tv1, tv2;
+=======
+int main() {
+struct timeval tv1, tv2;
+struct timeval thr1, thr2;
+=======
+	GameOver = 1;
+	printf("It's a draw! Come on, try harder for the win next time!");
+}
+<<<<<<< HEAD
+ printf("handled by thread, thread id: %d\n", data->tid); 
+}
+  pthread_exit(NULL);
+ }
+
+int main() {
+struct timeval tv1, tv2;
+struct timeval thr1, thr2;
+=======
+ printf("hello from thr_func, thread id: %d\n", data->tid);
+ }
+  pthread_exit(NULL);
+ }
+
+
+int main() {
+struct timeval tv1, tv2;
+>>>>>>> 1cffbe0ac9154b0667ecaaf64656b14a96c3b937
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 gettimeofday(&tv1, NULL);
 	srand(time(NULL)); /* seed random no generator - moves on board randomly */
 pthread_t thr[NUM_THREADS];
@@ -403,6 +472,7 @@ pthread_t thr[NUM_THREADS];
       return EXIT_FAILURE;
     }
   }
+<<<<<<< HEAD
   /* block until all threads complete */
   for (i = 0; i <  NUM_THREADS; ++i) {
     pthread_join(thr[i], NULL);
@@ -411,3 +481,47 @@ printf("time per thread %.4f\n", (double)(time(NULL) - 0));
 
   return EXIT_SUCCESS;
 }
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+gettimeofday(&thr1, NULL);
+  /* block until all threads complete */
+  for (i = 0; i <  NUM_THREADS; ++i) {
+    pthread_join(thr[i], NULL);
+<<<<<<< HEAD
+printf("time per thread %.4f\n", (double)(time(NULL) - 0));  
+}
+=======
+  }
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+gettimeofday(&thr2, NULL);
+printf ("time of thread joining (synchronisation) = %f seconds\n",
+         (double) (thr2.tv_usec - thr1.tv_usec) / 1000000 +
+         (double) (thr2.tv_sec - thr1.tv_sec));
+<<<<<<< HEAD
+gettimeofday(&tv2, NULL);
+printf ("Total time = %f seconds\n",
+         (double) (tv2.tv_usec - tv1.tv_usec) / 1000000 +
+         (double) (tv2.tv_sec - tv1.tv_sec)); 
+  return EXIT_SUCCESS;
+} 
+=======
+=======
+  /* block until all threads complete */
+  for (i = 0; i < NUM_THREADS; ++i) {
+    pthread_join(thr[i], NULL);
+  }
+
+>>>>>>> 1cffbe0ac9154b0667ecaaf64656b14a96c3b937
+gettimeofday(&tv2, NULL);
+printf ("Total time = %f seconds\n",
+         (double) (tv2.tv_usec - tv1.tv_usec) / 1000000 +
+         (double) (tv2.tv_sec - tv1.tv_sec));
+ 
+  return EXIT_SUCCESS;
+
+	}	
+>>>>>>> ef6fddb3e7e0f9c635c30cf8837294f99ac0bc94
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683

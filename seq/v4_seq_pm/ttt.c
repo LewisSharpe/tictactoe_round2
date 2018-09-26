@@ -327,8 +327,17 @@ void MakeMove (int *board, const int sq, const side) {
 
 void RunGame() {
 printf("%s TIC TAC TOE \n", KRED);
+<<<<<<< HEAD
 struct timeval thr_func1, thr_func2;
 gettimeofday(&thr_func1, NULL);
+=======
+<<<<<<< HEAD
+struct timeval thr_func1, thr_func2;
+gettimeofday(&thr_func1, NULL);
+
+=======
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 	int GameOver = 0;
 	int Side = NOUGHTS;
 	int LastMoveMade = 0;
@@ -348,7 +357,11 @@ gettimeofday(&tv4, NULL);
 printf ("Total time = %f seconds\n",
          (double) (tv4.tv_usec - tv3.tv_usec) / 1000000 +
          (double) (tv4.tv_sec - tv3.tv_sec));
+<<<<<<< HEAD
 printf("%s COMPUTER MOVE \n", KRED);	
+=======
+printf("%s COMPUTER MOVE \n", KBLU);	
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 }
 	else {
 	LastMoveMade = GetComputerMove(&board[0], Side);
@@ -357,10 +370,20 @@ printf("%s COMPUTER MOVE \n", KRED);
 	PrintBoard(&board[0]);
 printf("%s PLAYER MOVE \n", KNRM);
 	}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 gettimeofday(&thr_func2, NULL);
 printf ("elapsed time performing move: = %f seconds\n",
          (double) (thr_func2.tv_usec - thr_func1.tv_usec) / 1000000 +
          (double) (thr_func2.tv_sec - thr_func1.tv_sec));
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 // if three in a row exists Game is over
 		if( FindThreeInARow(board, LastMoveMade, Side ^ 1) == 3) {
 			printf("Game over!\n");
@@ -381,6 +404,10 @@ printf ("elapsed time performing move: = %f seconds\n",
 	}
 
 int main() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 struct timespec begin, end;
 double elapsed;
 clock_gettime(CLOCK_MONOTONIC, &begin);
@@ -390,5 +417,18 @@ clock_gettime(CLOCK_MONOTONIC, &end);
 elapsed = end.tv_sec - begin.tv_sec;
 elapsed += (end.tv_nsec - begin.tv_nsec) / 1000000000.0;
 printf("Elapsed game time = %lf seconds", elapsed);
+<<<<<<< HEAD
+=======
+=======
+struct timeval tv1, tv2;
+gettimeofday(&tv1, NULL);
+	srand(time(NULL)); /* seed random no generator - moves on board randomly */
+	RunGame();
+gettimeofday(&tv2, NULL);
+printf ("Total time = %f seconds\n",
+         (double) (tv2.tv_usec - tv1.tv_usec) / 1000000 +
+         (double) (tv2.tv_sec - tv1.tv_sec));
+>>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
+>>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 	return 0;
 	}	

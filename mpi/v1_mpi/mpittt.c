@@ -1,16 +1,16 @@
-// Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
+// Tic Tac Toe - Sequential C version - Version 4 - 7x7 Grid
 // Lewis Sharpe
 // 25.08.2017 
-// compile: gcc -o ttt_pt ttt_pt.c -lpthread
-// run: ./ttt_pt
+
+// compile: gcc -o ttt7x7 ttt7x7.c
+// run: ./ttt7x7
 
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
-#include <pthread.h>
 #include "time.h"
-// Lewis Sharpe
-#define NUM_THREADS     2
+#include "mpi.h"
+
 /* text colour code declarations */      
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -26,6 +26,9 @@ enum { NOUGHTS, CROSSES, BORDER, EMPTY };
 enum { HUMANWIN, COMPWIN, DRAW };
 
 int loopcount = 49;
+
+ const int PING_PONG_LIMIT = 10;
+
 /* var definitions */
 const int Directions[4] = {1, 7, 8, 14}; // 1 7 8 14  
 const int ConvertTo25[49] = { /* positions in 25 array */
@@ -37,16 +40,13 @@ const int ConvertTo25[49] = { /* positions in 25 array */
         56,57,58,59,60,61,62,
         65,66,67,68,69,70,71,
 };
+
 const int InMiddle = 41;
 const int Corners[4] = { 11, 17, 65, 71 };
+
 int ply = 0; // how many moves deep into tree
 int positions = 0; // no of pos searched
 int maxPly = 0; // how deep we have went in tree
-/* create thread argument struct for thr_func() */
-typedef struct _thread_data_t {
-  int tid;
-  double stuff;
-} thread_data_t;
 
 int GetNumForDir (int startSq, const int dir, const int *board, const int us) {
 	int found = 0; 
@@ -59,10 +59,13 @@ int GetNumForDir (int startSq, const int dir, const int *board, const int us) {
 }
 	return found;
 }
+
 int FindThreeInARow(const int *board, const int ourindex, const int us) {
+
         int DirIndex = 0;
         int Dir = 0;
         int threeCount = 1;
+
 for(DirIndex - 0; DirIndex <4; ++DirIndex) {
                 Dir = Directions[DirIndex];
                 threeCount += GetNumForDir(ourindex + Dir, Dir, board, us);
@@ -74,6 +77,7 @@ for(DirIndex - 0; DirIndex <4; ++DirIndex) {
                 }
                 return threeCount;
 }
+
 int FindThreeInARowAllBoard(const int *board, const int us) {
 // after move made	
 int threeFound = 0;
@@ -88,6 +92,7 @@ int threeFound = 0;
 	}	
 	return threeFound;
 }
+
 int EvalForWin(const int *board, const int us) {
 // eval if move is win draw or loss
 	if(FindThreeInARowAllBoard(board, us) != 0) // player win?
@@ -96,14 +101,7 @@ int EvalForWin(const int *board, const int us) {
 		return -1; // opp win confirmed
 	return 0;
 }
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
->>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
 int MinMax (int	*board, int side) {      
 // recursive function calling -	min max	will call again	and again through tree - to maximise score
 // check if there is a win
@@ -120,13 +118,7 @@ int MinMax (int	*board, int side) {
 	int bestMove = -1; // best move with score
 	int Move; // current move
 	int index; // indexing for loop
-/* pthreads defintions */
-pthread_t thr[NUM_THREADS];
-  int i, rc;
-  // create a thread_data_t argument array
-  thread_data_t thr_data[NUM_THREADS];
-/* pthread loop 1: executing position identification and reasoning */
-  for (i = 0; i < NUM_THREADS; ++i) {
+
 	if(ply > maxPly) // if current pos depper than max dep
  		 maxPly = ply; // max ply set to current pos	
 	positions++; // increment positions, as visited new position
@@ -137,7 +129,6 @@ pthread_t thr[NUM_THREADS];
 			return score; // return score, stop searching, game won
 		}		
 	}
-}
 	
 	// if no win, fill Move List
 	for(index = 0; index < 49; ++index) {
@@ -150,6 +141,7 @@ pthread_t thr[NUM_THREADS];
 	for(index = 0; index < MoveCount/35; ++index) {
 		Move = MoveList[index];
 		board[Move] = side;	
+
 		ply++; // increment ply
 		score = -MinMax(board, side^1); // for opposing side
 		if(score > bestScore) { // if score is best score (will be for first move)			
@@ -160,8 +152,6 @@ pthread_t thr[NUM_THREADS];
 		board[Move] = EMPTY; // else clear board
 		ply--; // decrement ply
 	}
-/* pthread loop 2: executing position identification and reasoning */
-  for (i = 0; i < NUM_THREADS; ++i) {
 	// tackle  move count is 0 as board is full
 	if(MoveCount==0) {
 		bestScore = FindThreeInARowAllBoard(board, side);	
@@ -172,13 +162,7 @@ pthread_t thr[NUM_THREADS];
 	else 
 		return bestMove;	
 }
-/* block until all threads complete */
-  for (i = 0; i < NUM_THREADS; ++i) {
-    pthread_join(thr[i], NULL);
-  }
- 
-  return EXIT_SUCCESS;
-        }
+
 int MinMax2 (int	*board, int side) {      
 // recursive function calling -	min max	will call again	and again through tree - to maximise score
 // check if there is a win
@@ -196,13 +180,6 @@ int MinMax2 (int	*board, int side) {
 	int Move; // current move
 	int index; // indexing for loop
 
-/* pthreads defintions */
-pthread_t thr[NUM_THREADS];
-  int i, rc;
-  // create a thread_data_t argument array
-  thread_data_t thr_data[NUM_THREADS];
-/* pthread loop 1: executing position identification and reasoning */
-  for (i = 0; i < NUM_THREADS; ++i) {
 	if(ply > maxPly) // if current pos depper than max dep
  		 maxPly = ply; // max ply set to current pos	
 	positions++; // increment positions, as visited new position
@@ -213,7 +190,6 @@ pthread_t thr[NUM_THREADS];
 			return score; // return score, stop searching, game won
 		}		
 	}
-}
 	
 	// if no win, fill Move List
 	for(index = 0; index < 49; ++index) {
@@ -226,7 +202,8 @@ pthread_t thr[NUM_THREADS];
 	for(index = 0; index < MoveCount/35; ++index) {
 		Move = MoveList[index];
 		board[Move] = side;	
- 		ply++; // increment ply
+
+		ply++; // increment ply
 		score = -MinMax(board, side^1); // for opposing side
 		if(score > bestScore) { // if score is best score (will be for first move)			
 			bestScore = score;	
@@ -236,8 +213,6 @@ pthread_t thr[NUM_THREADS];
 		board[Move] = EMPTY; // else clear board
 		ply--; // decrement ply
 	}
-/* pthread loop 1: executing position identification and reasoning */
-  for (i = 0; i < NUM_THREADS; ++i) {
 	// tackle  move count is 0 as board is full
 	if(MoveCount==0) {
 		bestScore = FindThreeInARowAllBoard(board, side);	
@@ -248,14 +223,10 @@ pthread_t thr[NUM_THREADS];
 	else 
 		return bestMove;	
 }
-/* block until all threads complete */
-  for (i = 0; i < NUM_THREADS; ++i) {
-    pthread_join(thr[i], NULL);
-  }
-  return EXIT_SUCCESS;
-   	}
+
 void InitialiseBoard (int *board) { /* pointer to our board array */ 
 	int index = 0; /* index for looping */
+
 	for (index = 0; index < 82; ++index) {
 		board[index] = BORDER; /* all squares to border square */
 	}
@@ -263,7 +234,9 @@ void InitialiseBoard (int *board) { /* pointer to our board array */
 		board[ConvertTo25[index]] = EMPTY /* all squares to empty */;
 	}
 }
+
 void PrintBoard(const int *board) {
+
 	int index = 0;
 	char pceChars[] = "OX|-";/* board chars */	
 	
@@ -276,11 +249,13 @@ void PrintBoard(const int *board) {
 	}
 	printf("\n");
 }
+
 int GetNextBest(const int *board) {
 /* if comp didn't find winning move, place priority for move in middle */
 /* if middle not available, then */
 /* place priority on corners, if corners not available */
 /* then make random move */
+
 int ourMove = ConvertTo25[InMiddle]; // set move to middle
 	if(board[ourMove] == EMPTY) {
 		return ourMove; // if board empty place in middle
@@ -298,7 +273,9 @@ int ourMove = ConvertTo25[InMiddle]; // set move to middle
 	}	
 	return ourMove;
 }
+
 int GetWinningMove(int *board, const int side) {
+
 	int ourMove = -1;
 	int winFound = 0;
 	int index = 0;
@@ -320,6 +297,7 @@ int GetWinningMove(int *board, const int side) {
 	} 
 	return ourMove;
 }
+
 int GetComputerMove(int *board, const int side) {
 	ply=0;
 	positions=0;
@@ -328,6 +306,7 @@ int GetComputerMove(int *board, const int side) {
 	printf("Finished searching through positions in tree:%d max depth:%d best move:%d\n",positions,maxPly,best);
 	return best;
 }
+
 int GetHumanMove(int *board, const int side) {
         ply=0;
 	positions=0;
@@ -336,6 +315,7 @@ int GetHumanMove(int *board, const int side) {
         printf("Finished searching through positions in tree:%d max depth:%d best");
         return best;
 }
+
 int HasEmpty(const int *board) { /* Has board got empty sq */
 	int index = 0;
 	for (index = 0; index < loopcount; ++index) {
@@ -343,30 +323,21 @@ int HasEmpty(const int *board) { /* Has board got empty sq */
 	}
 	return 0;
 }
+
 void MakeMove (int *board, const int sq, const side) {
 	board[sq] = side; /* pos of square equal the side (either x or o) */
 }
 
-/* thread function */
-void *thr_func(void *arg) {
+void RunGame() {
 printf("%s TIC TAC TOE \n", KRED);
-struct timeval thr_func1, thr_func2;
-gettimeofday(&thr_func1, NULL);
-<<<<<<< HEAD
- int i, rc;
-=======
-<<<<<<< HEAD
- int i, rc;
-=======
->>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
->>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
- thread_data_t *data = (thread_data_t *)arg;
 	int GameOver = 0;
 	int Side = NOUGHTS;
 	int LastMoveMade = 0;
 	int board[82];
+
 	InitialiseBoard(&board[0]);
 	PrintBoard(&board[0]);
+
 	while (!GameOver) { // while game is not over
 	if (Side==NOUGHTS) {
 struct timeval tv3, tv4;
@@ -374,11 +345,11 @@ gettimeofday(&tv3, NULL);
 		LastMoveMade = GetHumanMove (&board[0], Side);
 		MakeMove(&board[0], LastMoveMade, Side);
 		Side=CROSSES;
-       gettimeofday(&tv4, NULL);
+gettimeofday(&tv4, NULL);
 printf ("Total time = %f seconds\n",
          (double) (tv4.tv_usec - tv3.tv_usec) / 1000000 +
          (double) (tv4.tv_sec - tv3.tv_sec));
-printf("%s COMPUTER MOVE \n", KRED);		
+printf("%s COMPUTER MOVE \n", KBLU);	
 }
 	else {
 	LastMoveMade = GetComputerMove(&board[0], Side);
@@ -387,11 +358,7 @@ printf("%s COMPUTER MOVE \n", KRED);
 	PrintBoard(&board[0]);
 printf("%s PLAYER MOVE \n", KNRM);
 	}
- printf("handled by thread, thread id: %d\n", data->tid);
-gettimeofday(&thr_func2, NULL);
-printf ("elapsed time performing move: = %f seconds\n",
-         (double) (thr_func2.tv_usec - thr_func1.tv_usec) / 1000000 +
-         (double) (thr_func2.tv_sec - thr_func1.tv_sec));
+
 // if three in a row exists Game is over
 		if( FindThreeInARow(board, LastMoveMade, Side ^ 1) == 3) {
 			printf("Game over!\n");
@@ -402,99 +369,38 @@ printf ("elapsed time performing move: = %f seconds\n",
 				printf("Human Wins\n");
 			}
 		}	
+
 	if(!HasEmpty(board)) {
 	printf("Game Over! I know, it's a shame it can't last forever! \n");
-	GameOver= 1;
+	GameOver = 1;
 	printf("It's a draw! Come on, try harder for the win next time!");
 }
-}
-pthread_exit(NULL);
-}
+	}
+	}
+int main (int argc, char**  argv) {
 
-int main() {
-<<<<<<< HEAD
-struct timespec begin, end;
-double elapsed;
-clock_gettime(CLOCK_MONOTONIC, &begin);
-
-pthread_t thr[NUM_THREADS];
-  int i, rc;
-  /* create a thread_data_t argument array */
-thread_data_t thr_data[NUM_THREADS];
-
-=======
-<<<<<<< HEAD
-int i, rc;
-struct timespec begin, end;
-double elapsed;
-clock_gettime(CLOCK_MONOTONIC, &begin);
-/* create a thread_data_t argument array */
-  thread_data_t thr_data[NUM_THREADS];
-struct timeval thr1, thr2;
-	srand(time(NULL)); /* seed random no generator - moves on board randomly */
-pthread_t thr[NUM_THREADS];
-=======
+// Initialize the MPI environment
 struct timeval tv1, tv2;
-gettimeofday(&tv1);
-<<<<<<< HEAD
-pthread_t thr[NUM_THREADS];
-  int i, rc;
-struct timeval thr_sta[i], thr_end[i];
-gettimeofday(&thr_sta[i], NULL);
-  /* create a thread_data_t argument array */
-  thread_data_t thr_data[NUM_THREADS];
+gettimeofday(&tv1, NULL);
 	srand(time(NULL)); /* seed random no generator - moves on board randomly */
-=======
-struct timeval thr1, thr2;
-	srand(time(NULL)); /* seed random no generator - moves on board randomly */
-pthread_t thr[NUM_THREADS];
-  int i, rc;
-  /* create a thread_data_t argument array */
-  thread_data_t thr_data[NUM_THREADS];
-
-gettimeofday(&thr[i], NULL);
->>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
->>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
->>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
-  /* create threads */
-  for (i = 0; i < NUM_THREADS; ++i) {
-    thr_data[i].tid = i;
-    if ((rc = pthread_create(&thr[i], NULL, thr_func, &thr_data[i]))) {
-      fprintf(stderr, "error: pthread_create, rc: %d\n", rc);
-      return EXIT_FAILURE;
-    }
-  }  
- /* block until all threads complete */
-  for (i = 0; i < NUM_THREADS; ++i) {
-    pthread_join(thr[i], NULL);
-  }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
-clock_gettime(CLOCK_MONOTONIC, &end);
-elapsed = end.tv_sec - begin.tv_sec;
-elapsed += (end.tv_nsec - begin.tv_nsec) / 1000000000.0;
-printf("Elapsed game time = %lf seconds", elapsed);
-return EXIT_SUCCESS;
-} 
-
-<<<<<<< HEAD
-
-=======
-=======
+	RunGame();
 gettimeofday(&tv2, NULL);
-printf ("Elapsed game time = %f seconds\n",
+printf ("Total time = %f seconds\n",
          (double) (tv2.tv_usec - tv1.tv_usec) / 1000000 +
          (double) (tv2.tv_sec - tv1.tv_sec));
-<<<<<<< HEAD
-gettimeofday(&thr_end, NULL);
-printf ("ELAPSED thread time =  %f seconds\n",
-         (double) (thr_end[i].tv_usec - thr_sta[i].tv_usec) / 1000000 +
-         (double) (thr_end[i].tv_sec - thr_sta[i].tv_sec));
-=======
->>>>>>> 7904984bbab17d083e5a81611c37068001125fe8
-return EXIT_SUCCESS;
-} 
->>>>>>> 163bc4dff0260ea8f7c823ea675dbe59d66b996a
->>>>>>> 50e7a194763a09b490139784f31a4ff2b5b05683
+	return 0;
+
+// Initialize the MPI environment
+  MPI_Init(NULL, NULL);
+  // Find out rank, size
+  int world_rank;
+  MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+  int world_size;
+  MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+
+  // We are assuming at least 2 processes for this task
+  if (world_size != 2) {
+    fprintf(stderr, "World size must be two for %s\n", argv[0]);
+    MPI_Abort(MPI_COMM_WORLD, 1);
+}
+	}	
