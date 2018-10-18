@@ -59,6 +59,13 @@ typedef struct {
   int *res;
 } my_thread_args;
 
+typedef struct {
+  int *board1;
+  int len;
+  int side;
+  int *res;
+} minmax_thread_args;
+
 int GetNumForDir (int startSq, const int dir, const int *board, const int us) {
 	int found = 0; 
 	while (board[startSq] != BORDER) { // while start sq not border sq
@@ -109,7 +116,17 @@ int EvalForWin(const int *board, const int us) {
 	return 0;
 }
 
+#ifdef SEQ
+// in the sequential version, you probably have just board1, and side as input;
+// use a struct in this case as well, so that you can share code with the pthreads version
 int MinMax (int        *board0, int *board1, int side) {
+#else
+// in the pthreads version, use a struct as in the pthreads2.c sample code -- HWL
+int MinMax (minmax_thread_args *arg) {
+	int *board1 = arg->board1;
+	int len = arg->len;
+	int side = arg->side;
+#endif
 // recursive function calling - min max will call again and again through tree - to maximise score
 // check if there is a win
 // generate tree for all move for side (ply or opp)
@@ -126,12 +143,12 @@ int MinMax (int        *board0, int *board1, int side) {
         int Move; // current move
         int index; // indexing for loop
 
-/* pthreads defintions */
-pthread_t thr[NUM_THREADS];
-int thread_args[NUM_THREADS];
-  int i, t, rc[i];
-  // create a thread_data_t argument array
-  thread_data_t thr_data[NUM_THREADS];
+	/* pthreads defintions */
+	pthread_t thr[NUM_THREADS];
+	int thread_args[NUM_THREADS];
+	int i, t, rc[i];
+	// create a thread_data_t argument array
+	thread_data_t thr_data[NUM_THREADS];
 
         if(ply > maxPly) // if current pos depper than max dep
                  maxPly = ply; // max ply set to current pos
@@ -147,52 +164,64 @@ int thread_args[NUM_THREADS];
         // if no win, fill Move List
         // find empty cells
         for(index = 0; index < 49; ++index) {
-        if( board1[ConvertTo25[index]] == EMPTY) {
-        MoveList[MoveCount++] = ConvertTo25[index]; // current pos on loop
-}
+	  if( board1[ConvertTo25[index]] == EMPTY) {
+	    MoveList[MoveCount++] = ConvertTo25[index]; // current pos on loop
+	  }
         }
 
         // loop all moves - put on board
 	// MAIN LOOP	
         for(index = 0; index < MoveCount; ++index) {         
 	  for (t=0; i<NUM_THREADS; t++, index++) {
-thread_data_t *board0, *board1;
-const int bsz = sizeof(thread_data_t);
-		board1 = malloc(49*sizeof(int));
-                memcpy(board1,board0, 49*(sizeof(int))); // source, des, size
-                // copy board to board0
-                Move = MoveList[index];
-                board1[Move] = side;
-                ply++; // increment ply
-                // score = -MinMax(board, side^1); // SEQ RECURSIVE CALL! for opposing side
-                // PARALLEL CALL; BEWARE board shared btw all threads; use board0 instead
-                //rc[t] = pthread_create(&thr, NULL, MinMax, (void *) thr_data);
-#ifdef SEQ 
-		score = -MinMax(board1, side^1);
-#else
-		memcpy(thr_data, board1, 49*sizeof(int));
-//		*(thr_data+49*sizeof(int)) = side^1;
-		rc[t] = pthread_create(&thr[i], NULL, MinMax, (void *) thr_data);
-#endif
-                // undo moves
-                board1[Move] = EMPTY; // else clear board
-                ply--; // decrement ply
-        }
+            // these declarations will hide the board0 and board1 arguments to this fct!! -- HWL
+	    // thread_data_t *board0, *board1;
+            const int asz = sizeof(thread_data_t); // size of the argument struct
+            const int bsz = sizeof(49*sizeof(int)); // size of the board, pointed to
 
-        // NUM_THREADs different threads working on sub boards
-        /* block until all threads complete */
+	    // allocate mem for the argument struct
+	    minmax_thread_args *new_thread_arg = (minmax_thread_args *)malloc(asz);
+	    // allocate mem for the board in arg
+	    new_thread_arg->board1 = malloc(bsz);
+	    new_thread_arg->len = 49; // BAD magic constant
+	    // copy board to board0
+	    memcpy(new_thread_arg->board1, board1, bsz); // ORDER: dest, source, size
+            Move = MoveList[index];
+	    // I assume that board0 is the temp board to be used for the thread
+            new_thread_arg->board1[Move] = side;
+            ply++; // increment ply
+            // score = -MinMax(board, side^1); // SEQ RECURSIVE CALL! for opposing side
+            // PARALLEL CALL; BEWARE board shared btw all threads; use board0 instead
+            //rc[t] = pthread_create(&thr, NULL, MinMax, (void *) thr_data);
+#ifdef SEQ 
+            // needs update to use the arg struct in the sequential version as well  
+            score = -MinMax(board0, side^1);
+#else
+            //memcpy(thr_data, board0, 49*sizeof(int));
+	    //		*(thr_data+49*sizeof(int)) = side^1;
+            // rc[t] = pthread_create(&thr[i], NULL, MinMax, (void *) thr_data); // why an array here?? should be a pointer to the same kind of struct that is passed to MinMax as sole arg! -- HWL
+            rc[t] = pthread_create(&thr[i], NULL, MinMax, (void *) new_thread_arg); // HWL
+#endif
+	    // undo moves
+	    board0[Move] = EMPTY; // else clear board
+	    ply--; // decrement ply
+	  }
+
+	  // NUM_THREADs different threads working on sub boards
+	  /* block until all threads complete */
 #ifndef SEQ
-         for (t = 0; t < NUM_THREADS; ++t) {
-                pthread_join(thr[t], NULL);
-                score = rc[t]; // get restult from thread £t
-                if(score > bestScore) { // if score is best score (will be for first move)
-                        bestScore = score;
-                        bestMove = Move;
-                }
+	  for (t = 0; t < NUM_THREADS; ++t) {
+	    pthread_join(thr[t], NULL);
+	    score = rc[t]; // get restult from thread £t; according to manual, the return code is NOT the value of the fct that is called, rather the status of the thread (0 for ok) -- HWL
+            // you probably need to remember the new_thread_arg in an array and res the ->res component of that arg here, to access the result from the thread             -- HWL
+            if(score > bestScore) { // if score is best score (will be for first move)
+	      bestScore = score;
+	      bestMove = Move;
+	    }
           }
 #endif
 #ifdef SEQ
-		bestScore = (score>bestScore) ? score : bestScore; 
+	  bestScore = (score>bestScore) ? score : bestScore;
+	  // same for bestMove
 #endif	
 
         // tackle  move count is 0 as board is full
@@ -304,7 +333,7 @@ void MakeMove (int *board, const int sq, const side) {
 
 /* thread function */
 void *thr_func(void *arg, int *board0, int *board1) {
-printf("%s TIC TAC TOE \n", KRED);
+printf("%s TIC TAC TOE \n", KNRM);
 struct timeval thr_func1, thr_func2;
 gettimeofday(&thr_func1, NULL);
  int i, rc;
@@ -326,7 +355,7 @@ gettimeofday(&tv3, NULL);
 printf ("Total time = %f seconds\n",
          (double) (tv4.tv_usec - tv3.tv_usec) / 1000000 +
          (double) (tv4.tv_sec - tv3.tv_sec));
-printf("%s COMPUTER MOVE \n", KRED);		
+printf("%s COMPUTER MOVE \n", KNRM);		
 }
 	else {
 	LastMoveMade = GetComputerMove(&board0, &board1, Side);
