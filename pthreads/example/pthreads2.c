@@ -27,15 +27,26 @@ typedef struct {
   int len;
   int *res;
 } my_thread_args;
-
+ 
+/*                              larr
+                                |
+                 +--------+     v 
+  int *arr;      |    --------> [1,2,3,4,5]
+  int len;       |    5   |
+  int *res;      |   ---------> ____
+                 +--------+
+*/
 // unused (from orig example)
 void *print_message_function( void *ptr );
 
 // prototype for the function that will be called via pthread_create
 void *do_sum(my_thread_args *buf);
 // this would be the sequential fct interface
+// int do_sum( int *arr, int len);
 // void *do_sum( int *arr, int len, int *res );
-
+// [ 1, 2, 3] (len 3) -> 6
+// ^ arr       ^ len    
+// call: { int len, res; int arr[5];    do_sum(arr, len, &res);    }
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 main()
@@ -134,20 +145,20 @@ void print_arr(int *arr, int len) {
 void *do_sum(my_thread_args *buf)
 {
   int sum, i;
-  int *arr = buf->arr;
+  int *larr = buf->arr;
   int len = buf->len;
   int *res = buf->res;
   sum = 0;
 #ifdef DEBUG
-  printf("do_sum: array @ %p\n", arr);
+  printf("do_sum: array @ %p\n", larr);
   printf("do_sum: len = %d\n", len);
   printf("ptr for result: %p\n", res);
-  // printf("do_sum: array: %s\n", ""); print_arr(arr, len);
-  printf("do_sum: array: %s\n", show_arr(arr, len));
+  // printf("do_sum: array: %s\n", ""); print_arr(larr, len);
+  printf("do_sum: array: %s\n", show_arr(larr, len));
 #endif
 
   for (i=0; i<len; i++) {
-    sum += arr[i];
+    sum += larr[i];
   }
 #ifdef DEBUG
   printf("do_sum: res = %d\n", sum);
