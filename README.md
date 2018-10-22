@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Sequential and Parallel implementation of Minimax AI Search in a game 
 # of Tictactoe on a 7x7 squared grid
 Lewis Sharpe (ls68@hw.ac.uk) August 2018
@@ -115,7 +115,7 @@ below. **Experimental Setup 1 - AMD OperatonTM Processor 6320 (8 core
 machine) hardware specification:** ![exp1](images/exp1.png) 
 **Experimental Setup 2 - AMD OperatonTM Processor 6438 (48 cores) 
 hardware specification:** ![exp2](images/exp2.png)
-=======
+
 # Sequential and Parallel implementation of Minimax AI Search in a game of Tictactoe on a 7x7 squared grid
 Lewis Sharpe (ls68@hw.ac.uk)
 
