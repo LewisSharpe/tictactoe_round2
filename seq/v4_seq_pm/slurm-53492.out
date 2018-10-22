@@ -1,0 +1,1621 @@
+NEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000007 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000053 seconds
+Finished searching through positions in tree:13 max depth:12 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000082 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000086 seconds
+Finished searching through positions in tree:11 max depth:10 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000109 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000113 seconds
+Finished searching through positions in tree:9 max depth:8 best move:16
+
+
+Board:
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000134 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000137 seconds
+Finished searching through positions in tree:7 max depth:6 best move:20
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000155 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000159 seconds
+Finished searching through positions in tree:5 max depth:4 best move:22
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000173 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000176 seconds
+Finished searching through positions in tree:3 max depth:2 best move:24
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000187 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000191 seconds
+Game over!
+Human Wins
+Elapsed game time = 0.000700 secondsNEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000006 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000038 seconds
+Finished searching through positions in tree:13 max depth:12 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000066 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000070 seconds
+Finished searching through positions in tree:11 max depth:10 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000094 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000097 seconds
+Finished searching through positions in tree:9 max depth:8 best move:16
+
+
+Board:
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000118 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000122 seconds
+Finished searching through positions in tree:7 max depth:6 best move:20
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000140 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000143 seconds
+Finished searching through positions in tree:5 max depth:4 best move:22
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000158 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000161 seconds
+Finished searching through positions in tree:3 max depth:2 best move:24
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000172 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000175 seconds
+Game over!
+Human Wins
+Elapsed game time = 0.000822 secondsNEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000006 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000038 seconds
+Finished searching through positions in tree:13 max depth:12 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000067 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000071 seconds
+Finished searching through positions in tree:11 max depth:10 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000094 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000098 seconds
+Finished searching through positions in tree:9 max depth:8 best move:16
+
+
+Board:
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000119 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000122 seconds
+Finished searching through positions in tree:7 max depth:6 best move:20
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000140 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000143 seconds
+Finished searching through positions in tree:5 max depth:4 best move:22
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000158 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000161 seconds
+Finished searching through positions in tree:3 max depth:2 best move:24
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000173 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000176 seconds
+Game over!
+Human Wins
+Elapsed game time = 0.000758 secondsNEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000006 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000038 seconds
+Finished searching through positions in tree:13 max depth:12 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000067 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000070 seconds
+Finished searching through positions in tree:11 max depth:10 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000094 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000097 seconds
+Finished searching through positions in tree:9 max depth:8 best move:16
+
+
+Board:
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000118 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000121 seconds
+Finished searching through positions in tree:7 max depth:6 best move:20
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000140 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000143 seconds
+Finished searching through positions in tree:5 max depth:4 best move:22
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000158 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000161 seconds
+Finished searching through positions in tree:3 max depth:2 best move:24
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000172 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000175 seconds
+Game over!
+Human Wins
+Elapsed game time = 0.000794 secondsNEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000007 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000041 seconds
+Finished searching through positions in tree:13 max depth:12 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000070 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000074 seconds
+Finished searching through positions in tree:11 max depth:10 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000097 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000101 seconds
+Finished searching through positions in tree:9 max depth:8 best move:16
+
+
+Board:
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000122 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000125 seconds
+Finished searching through positions in tree:7 max depth:6 best move:20
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000143 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000147 seconds
+Finished searching through positions in tree:5 max depth:4 best move:22
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000162 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000165 seconds
+Finished searching through positions in tree:3 max depth:2 best move:24
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000176 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000179 seconds
+Game over!
+Human Wins
+Elapsed game time = 0.000782 secondsNEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000006 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000034 seconds
+Finished searching through positions in tree:13 max depth:12 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000061 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000064 seconds
+Finished searching through positions in tree:11 max depth:10 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000088 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000091 seconds
+Finished searching through positions in tree:9 max depth:8 best move:16
+
+
+Board:
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000112 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000115 seconds
+Finished searching through positions in tree:7 max depth:6 best move:20
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000133 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000136 seconds
+Finished searching through positions in tree:5 max depth:4 best move:22
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000151 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000154 seconds
+Finished searching through positions in tree:3 max depth:2 best move:24
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000165 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000168 seconds
+Game over!
+Human Wins
+Elapsed game time = 0.000764 secondsNEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000005 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000034 seconds
+Finished searching through positions in tree:13 max depth:12 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000060 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000063 seconds
+Finished searching through positions in tree:11 max depth:10 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000086 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000089 seconds
+Finished searching through positions in tree:9 max depth:8 best move:16
+
+
+Board:
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000110 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000113 seconds
+Finished searching through positions in tree:7 max depth:6 best move:20
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000131 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000135 seconds
+Finished searching through positions in tree:5 max depth:4 best move:22
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000149 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000152 seconds
+Finished searching through positions in tree:3 max depth:2 best move:24
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000163 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000167 seconds
+Game over!
+Human Wins
+Elapsed game time = 0.000576 secondsNEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000006 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000034 seconds
+Finished searching through positions in tree:13 max depth:12 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000063 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000067 seconds
+Finished searching through positions in tree:11 max depth:10 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000090 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000094 seconds
+Finished searching through positions in tree:9 max depth:8 best move:16
+
+
+Board:
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000115 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000118 seconds
+Finished searching through positions in tree:7 max depth:6 best move:20
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000136 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000140 seconds
+Finished searching through positions in tree:5 max depth:4 best move:22
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000154 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000158 seconds
+Finished searching through positions in tree:3 max depth:2 best move:24
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000169 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000172 seconds
+Game over!
+Human Wins
+Elapsed game time = 0.000735 secondsNEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000006 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000034 seconds
+Finished searching through positions in tree:13 max depth:12 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000060 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000063 seconds
+Finished searching through positions in tree:11 max depth:10 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000087 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000090 seconds
+Finished searching through positions in tree:9 max depth:8 best move:16
+
+
+Board:
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000111 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000114 seconds
+Finished searching through positions in tree:7 max depth:6 best move:20
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000132 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000136 seconds
+Finished searching through positions in tree:5 max depth:4 best move:22
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000150 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000153 seconds
+Finished searching through positions in tree:3 max depth:2 best move:24
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000164 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000168 seconds
+Game over!
+Human Wins
+Elapsed game time = 0.000832 secondsNEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000006 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000040 seconds
+Finished searching through positions in tree:13 max depth:12 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000069 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000072 seconds
+Finished searching through positions in tree:11 max depth:10 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000096 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000099 seconds
+Finished searching through positions in tree:9 max depth:8 best move:16
+
+
+Board:
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000120 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000123 seconds
+Finished searching through positions in tree:7 max depth:6 best move:20
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000142 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000145 seconds
+Finished searching through positions in tree:5 max depth:4 best move:22
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000159 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000163 seconds
+Finished searching through positions in tree:3 max depth:2 best move:24
+
+
+Board:
+
+   O   X   O   X   O   X   O
+
+   X   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+elapsed time performing move: = 0.000174 seconds
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[31m COMPUTER MOVE 
+elapsed time performing move: = 0.000177 seconds
+Game over!
+Human Wins
+Elapsed game time = 0.000746 seconds
