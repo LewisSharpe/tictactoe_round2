@@ -84,3 +84,4 @@ The above variants of the Minimax Algorithm implemented were ran on the followin
 **Experimental Setup 2 - AMD OperatonTM Processor 6438 (48 cores) hardware specification:**
 
 ![exp2](images/exp2.png)
+# ttt_v3
