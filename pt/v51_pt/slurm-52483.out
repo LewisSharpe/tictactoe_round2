@@ -1,0 +1,2239 @@
+NEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000004 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000004 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:21 max depth:10 best move:2
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:4 max depth:2 best move:-2
+Finished searching through positions in tree:9 max depth:4 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+
+
+Board:
+
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:5 max depth:2 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+   -Finished searching through positions in tree:-14 max depth:1 best
+
+Total time = 0.000003 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 1
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:27 max depth:13 best move:13
+
+
+Board:
+
+   O   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:23 max depth:11 best move:15
+
+
+Board:
+
+   O   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:19 max depth:9 best move:17
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:15 max depth:7 best move:21
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:11 max depth:5 best move:23
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:7 max depth:3 best move:25
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:3 max depth:1 best move:29
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+Game over!
+Computer Wins
+hello from thr_func, thread id: 0
+Total time = 0.001558 seconds
+NEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -[31m TIC TAC TOE 
+
+
+
+Board:
+
+   -Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000009 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000004 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:17 max depth:8 best move:2
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:28 max depth:13 best move:2
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -Finished searching through positions in tree:36 max depth:13 best move:-2
+
+
+Board:
+
+   O   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:2 max depth:0 best move:-1
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+Finished searching through positions in tree:-1 max depth:1 best   -Total time = 0.000004 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 0
+   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:27 max depth:13 best move:13
+
+
+Board:
+
+   O   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:23 max depth:11 best move:15
+
+
+Board:
+
+   O   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:19 max depth:9 best move:17
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:15 max depth:7 best move:21
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:11 max depth:5 best move:23
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:7 max depth:3 best move:25
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:3 max depth:1 best move:29
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+Game over!
+Computer Wins
+hello from thr_func, thread id: 1
+Total time = 0.001365 seconds
+NEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000004 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000003 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:23 max depth:11 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:15 max depth:7 best move:-2
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -Finished searching through positions in tree:27 max depth:7 best move:2
+   -
+
+Board:
+
+   -   O   X   -   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000029 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:35 max depth:17 best move:1
+
+
+Board:
+
+   O   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:2 max depth:0 best move:1
+
+
+Board:
+
+   O   X   O   O   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -Finished searching through positions in tree:-1 max depth:1 best   -Total time = 0.478743 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 1
+   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 0
+Total time = 0.001177 seconds
+NEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000023 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000003 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:23 max depth:11 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:24 max depth:11 best move:2
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -Finished searching through positions in tree:33 max depth:11 best move:-2
+
+
+Board:
+
+   O   X   O   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 best   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Total time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:14 max depth:7 best move:-1
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:12 max depth:6 best move:-1
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -Finished searching through positions in tree:13 max depth:6 best move:1
+   -
+
+Board:
+
+   -   O   X   O   -   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+
+[0m PLAYER MOVE 
+   -hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 0
+   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:27 max depth:13 best move:13
+
+
+Board:
+
+   O   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:23 max depth:11 best move:15
+
+
+Board:
+
+   O   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:19 max depth:9 best move:17
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:15 max depth:7 best move:21
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:11 max depth:5 best move:23
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:7 max depth:3 best move:25
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:3 max depth:1 best move:29
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+Game over!
+Computer Wins
+hello from thr_func, thread id: 1
+Total time = 0.000936 seconds
+NEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000027 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000004 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:5 max depth:2 best move:2
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:27 max depth:12 best move:-2
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -Finished searching through positions in tree:36 max depth:12 best move:-2
+
+
+Board:
+
+   O   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-1 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:2 max depth:0 best move:-1
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:13 max depth:6 best move:-1
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:2 max depth:0 best move:1
+
+
+Board:
+
+   O   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -Finished searching through positions in tree:28 max depth:0 best move:1
+
+
+Board:
+
+   O   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-1 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+
+hello from thr_func, thread id: 0
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-1 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 1
+Total time = 0.000897 seconds
+NEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000024 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000003 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:22 max depth:10 best move:2
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:9 max depth:4 best move:2
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -Finished searching through positions in tree:29 max depth:4 best move:-2
+
+
+Board:
+
+   O   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-1 max depth:1 bestTotal time = 0.000001 seconds
+   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:27 max depth:13 best move:13
+
+
+Board:
+
+   O   O   X   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:23 max depth:11 best move:15
+
+
+Board:
+
+   O   O   X   O   X   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:19 max depth:9 best move:17
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:15 max depth:7 best move:21
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:11 max depth:5 best move:23
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:7 max depth:3 best move:25
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   O   X   O   X   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:3 max depth:1 best move:29
+
+
+Board:
+
+   O   O   X   O   X   O   X
+
+   O   X   O   X   O   X   O
+
+   X   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+Game over!
+Computer Wins
+hello from thr_func, thread id: 1
+Total time = 0.001270 seconds
+NEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+Finished searching through positions in tree:-14 max depth:1 bestFinished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000011 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Total time = 0.000005 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:28 max depth:14 best move:-1
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:1 max depth:0 best move:-2
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:13 max depth:6 best move:-1
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:4 max depth:1 best move:2
+
+
+Board:
+
+   O   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -Finished searching through positions in tree:28 max depth:1 best move:1
+   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-1 max depth:1 bestTotal time = 0.000003 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 1
+
+
+Board:
+
+   O   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-1 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 0
+Total time = 0.001055 seconds
+NEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000003 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000003 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:12 max depth:6 best move:2
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:21 max depth:10 best move:-2
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -Finished searching through positions in tree:33 max depth:10 best move:2
+   -
+
+Board:
+
+   -   -   O
+
+   -   -   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-1 max depth:1 bestTotal time = 0.000016 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:9 max depth:4 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:5 max depth:2 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 1
+Total time = 0.001262 seconds
+NEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -   -
+   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000010 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000035 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:26 max depth:13 best move:-1
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:16 max depth:7 best move:-2
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+Finished searching through positions in tree:4 max depth:2 best move:2
+
+
+Board:
+
+   O   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-1 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 0
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:9 max depth:4 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:5 max depth:2 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 1
+Total time = 0.001519 seconds
+NEW ITERATION
+[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 best[31m TIC TAC TOE 
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -Total time = 0.000004 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+   -
+
+   -   -   -   -   -   -   -
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000003 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:22 max depth:10 best move:-2
+
+
+Board:
+
+   O   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:24 max depth:11 best move:2
+
+
+Board:
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -Finished searching through positions in tree:35 max depth:11 best move:-2
+
+
+Board:
+
+   O   O   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:-1 max depth:1 best[0m PLAYER MOVE 
+Total time = 0.000002 seconds
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000002 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 0
+Finished searching through positions in tree:9 max depth:4 best move:12
+
+
+Board:
+
+   O   X   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:5 max depth:2 best move:14
+
+
+Board:
+
+   O   X   O   X   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+
+   -   -   -   -   -   -   -
+[0m PLAYER MOVE 
+hello from thr_func, thread id: 1
+Finished searching through positions in tree:-14 max depth:1 bestTotal time = 0.000001 seconds
+[34m COMPUTER MOVE 
+Game over!
+Human Wins
+hello from thr_func, thread id: 1
+Total time = 0.000810 seconds
