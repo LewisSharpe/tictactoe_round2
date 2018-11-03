@@ -12,6 +12,6 @@ for ((n=0;n<10;n++));
 
 do 
 echo "NEW ITERATION";  
-./ttt_pt_arvc;
+./ttt_pt_ver2;
 done;
 
