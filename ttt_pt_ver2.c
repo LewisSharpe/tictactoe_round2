@@ -43,6 +43,12 @@ const int ConvertTo25[49] = { /* positions in 25 array */
 
 const int InMiddle = 41;
 const int Corners[4] = { 11, 17, 65, 71 };
+<<<<<<< HEAD
+=======
+int ply = 0; // how many moves deep into tree
+int positions = 0; // no of pos searched
+int maxPly = 0; // how deep we have went in tree
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 
 /* create thread argument struct for thr_func() */
 /* this looks like a generic data structure, not one for this app -- HWL */
@@ -56,6 +62,7 @@ typedef struct {
   int *board1;  // the current board of play
   int len;      // number of cells on the board
   int side;     // player making current move
+<<<<<<< HEAD
   int ply; 
   int maxPly;
   int positions;
@@ -66,6 +73,13 @@ int GetNumForDir (int startSq,
 		  const int dir,	
 		  const int *board,	
 	          const int us) {
+=======
+  int ply;     // 
+  int *res;     // result from running MinMax on this board; could be an int instead
+} minmax_thread_args;
+
+int GetNumForDir (int startSq, const int dir, const int *board, const int us) {
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 	int found = 0; 
 	while (board[startSq] != BORDER) { // while start sq not border sq
 		if(board[startSq] != us) {
@@ -76,10 +90,14 @@ int GetNumForDir (int startSq,
 }
 	return found;
 }
+<<<<<<< HEAD
 
 int FindThreeInARow(const int *board,
 		    const int ourindex,
 		    const int us) {
+=======
+int FindThreeInARow(const int *board, const int ourindex, const int us) {
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
         int DirIndex = 0;
         int Dir = 0;
         int threeCount = 1;
@@ -95,8 +113,12 @@ for(DirIndex - 0; DirIndex <4; ++DirIndex) {
                 return threeCount;
 }
 
+<<<<<<< HEAD
 int FindThreeInARowAllBoard(const int *board,
 			    const int us) {
+=======
+int FindThreeInARowAllBoard(const int *board, const int us) {
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
          /* after move made	 */
         int threeFound = 0;
 	int index;
@@ -110,9 +132,13 @@ int FindThreeInARowAllBoard(const int *board,
 	}	
 	return threeFound;
 }
+<<<<<<< HEAD
 
 int EvalForWin(const int *board,
 	       const int us) {
+=======
+int EvalForWin(const int *board, const int us) {
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 // eval if move is win draw or loss
 	if(FindThreeInARowAllBoard(board, us) != 0) // player win?
 		return 1; // player win confirmed
@@ -122,6 +148,7 @@ int EvalForWin(const int *board,
 }
 
 #ifdef SEQ
+<<<<<<< HEAD
 
 // in the sequential version, you probably have just board1, and side as input;
 // use a struct in this case as well, so that you can share code with the pthreads version
@@ -145,6 +172,17 @@ int MinMax (minmax_thread_args *arg,
             int maxPly,
             const int side) 
 {
+=======
+// in the sequential version, you probably have just board1, and side as input;
+// use a struct in this case as well, so that you can share code with the pthreads version
+int MinMax (minmax_thread_args *arg /* int        *board0, int *board1, int side */) {
+#else// in the pthreads version, use a struct as in the pthreads2.c sample code -- HWL
+int MinMax (minmax_thread_args *arg) {
+	int *board1 = arg->board1;
+	int len = arg->len;
+	int side = arg->len;
+	int ply = arg->ply;
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 #endif
 // recursive function calling - min max will call again and again through tree - to maximise score
 // check if there is a win
@@ -162,6 +200,7 @@ int MinMax (minmax_thread_args *arg,
         int Move; // current move
         int index; // indexing for loop
 
+<<<<<<< HEAD
         ply = 0;
         positions = 0;
         maxPly = 0;
@@ -176,13 +215,32 @@ int MinMax (minmax_thread_args *arg,
         positions++;  // increment positions, as visited new position
 
         if(ply > 0) {
+=======
+	/* pthreads defintions */
+	pthread_t thr[NUM_THREADS];
+	minmax_thread_args thread_args[NUM_THREADS];
+	int i, t, rc[i];
+	        
+	/* HERE <============== */
+	
+        // can't use GLOBAL vars in the pthreads version
+        if(ply > maxPly) // if current pos depper than max dep
+                 maxPly = ply; // max ply set to current pos
+        positions++; // increment positions, as visited new position
+
+        if(ply > 0) { /* remove the global variable -- HWL */
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
                 score = EvalForWin(board1, side); // is current pos a win
 		if(score != 0) { // if draw
                      return score;  /* return score, stop searching, game won */
                 }
         }
 
+<<<<<<< HEAD
    // if no win, fill Move List
+=======
+        // if no win, fill Move List
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
         // find empty cells
         for(index = 0; index < 49; ++index) {
 	  if( board1[ConvertTo25[index]] == EMPTY) {
@@ -196,7 +254,12 @@ int MinMax (minmax_thread_args *arg,
           /* you probably only want to use the multi-threaded version in the top N levels; so need to pass the level as another argument / elem in the argumnet struct (like ply) and check whether the level is below the constant N  -- HWL */
 	  for (t=0; t<NUM_THREADS && index < MoveCount; t++, index++) {
             // these declarations will hide the board0 and board1 arguments to this fct!! -- HWL
+<<<<<<< HEAD
 	    const int asz = sizeof(thread_data_t); // size of the argument struct
+=======
+	    // thread_data_t *board0, *board1;
+            const int asz = sizeof(thread_data_t); // size of the argument struct
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
             const int bsz = sizeof(49*sizeof(int)); // size of the board, pointed to
 
 	    // allocate mem for the argument struct
@@ -205,6 +268,11 @@ int MinMax (minmax_thread_args *arg,
 	    // allocate mem for the board in arg
             new_thread_arg->board1 = (int*)malloc(bsz);
 	    new_thread_arg->len = 49; // BAD magic constant
+<<<<<<< HEAD
+=======
+	    new_thread_arg->side = side;
+	    new_thread_arg->ply = ply++;
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
             new_thread_arg->res = (int*)malloc(sizeof(int));
 	    // copy board to board0
 	    memcpy(new_thread_arg->board1, board1, bsz); // ORDER: dest, source, size
@@ -215,9 +283,15 @@ int MinMax (minmax_thread_args *arg,
             // PARALLEL CALL; BEWARE board shared btw all threads; use board0 instead
         #ifdef SEQ 
             // needs update to use the arg struct in the sequential version as well  
+<<<<<<< HEAD
             score = -MinMax(new_thread_arg, *board0, *board1, ply, positions, maxPly, side); /* -MinMax(board0, side^1); */
 	#else
             rc[t] = pthread_create(&thr[i], NULL, MinMax,(void *) &thread_args[t]); // HWL
+=======
+            score = -MinMax(new_thread_arg); /* -MinMax(board0, side^1); */
+	#else
+            rc[t] = pthread_create(&thr[i], NULL, MinMax, (void *) thread_args *new_thread_arg[t]); // HWL
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 	#endif
 	    // undo moves
 	    board1[Move] = EMPTY; // else clear board; no longer needed if you use new_thread_arg -- HWL
@@ -257,7 +331,10 @@ int MinMax (minmax_thread_args *arg,
 #endif
 
 #ifdef DEBUG // LS 22.10.18
+<<<<<<< HEAD
 printf("debug work");
+=======
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 // DO WORK
 #endif
     }
@@ -288,7 +365,10 @@ void PrintBoard(const int *board) {
 	}
 	printf("\n");
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 int GetNextBest(const int *board) {
 /* if comp didn't find winning move, place priority for move in middle */
 /* if middle not available, then */
@@ -311,9 +391,13 @@ int ourMove = ConvertTo25[InMiddle]; // set move to middle
 	}	
 	return ourMove;
 }
+<<<<<<< HEAD
 
 int GetWinningMove(int *board, 
 		   const int side) {
+=======
+int GetWinningMove(int *board, const int side) {
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 	int ourMove = -1;
 	int winFound = 0;
 	int index = 0;
@@ -335,6 +419,7 @@ int GetWinningMove(int *board,
 	} 
 	return ourMove;
 }
+<<<<<<< HEAD
 
 int GetComputerMove (int *board0,
                      int *board1,
@@ -357,15 +442,52 @@ int GetHumanMove(int *board0,
 		 int ply, // human
             	 int positions, 
                  int maxPly) {
+=======
+int GetComputerMove(int *board0, int *board1, const int side) {
+        int *arg; // undefined pointer	
+	ply=0;
+	positions=0;
+	maxPly=0;
+	// minmax_thread_args *thread_args; 
+	int best
+	// where are asz and bsz defined  
+
+	// construct the buffer below -- HWL
+	// allocate mem for the argument struct
+	minmax_thread_args *thread_arg = (minmax_thread_args *)malloc(asz);
+	// allocate mem for the board in arg
+	thread_arg->board1 = (int*)malloc(bsz);
+	thread_arg->len = 49; // BAD magic constant
+	thread_arg->ply = ???;
+	thread_arg->side = side;
+	thread_arg->res = (int*)malloc(sizeof(int));
+	// copy board to board0
+	memcpy(thread_arg->board1, board1, bsz); // ORDER: dest, source, size
+
+	best = MinMax(thread_arg);       // need to pass a buffer here
+	
+	// best = MinMax(*arg); // NO: this passes an undefined pointer to MinMax
+	printf("Finished searching through positions in tree: %d max depth: %d best move: %d\n",positions,maxPly,best);
+	return best;
+}
+int GetHumanMove(int *board0, int *board1, const int side) {
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 	int *arg;        
 	ply=0;
 	positions=0;
         maxPly=0;
+<<<<<<< HEAD
         int best = MinMax(*arg, *board0, *board1, ply, positions, maxPly, side);
         printf("Finished searching through positions in tree:%d max depth:%d best");
         return best;
 }
 
+=======
+        int best = MinMax(*arg); // NO, same as above -- HWL
+        printf("Finished searching through positions in tree:%d max depth:%d best");
+        return best;
+}
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 int HasEmpty(const int *board) { /* Has board got empty sq */
 	int index = 0;
 	for (index = 0; index < loopcount; ++index) {
@@ -373,14 +495,19 @@ int HasEmpty(const int *board) { /* Has board got empty sq */
 	}
 	return 0;
 }
+<<<<<<< HEAD
 
 void MakeMove (int *board,
 	       const int sq, 	
                const side) {
+=======
+/* static inline */ void MakeMove (int *board, const int sq, const side) {
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 	board[sq] = side; /* pos of square equal the side (either x or o) */
 }
 
 /* thread function */
+<<<<<<< HEAD
 void *RunGame() {
 //(minmax_thread_args *arg,
 //	       int *board0,
@@ -393,6 +520,14 @@ void *RunGame() {
 	struct timeval thr_func1, thr_func2;
 	gettimeofday(&thr_func1, NULL);
  	int i, rc;
+=======
+// void *thr_func(void *arg, int *board0, int *board1) {
+RunGame(){
+ 	printf("%s TIC TAC TOE \n", KNRM);
+ 	struct timeval thr_func1, thr_func2;
+ 	gettimeofday(&thr_func1, NULL);
+ 	 int i, rc;
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
  	thread_data_t *data = (thread_data_t *)arg;
 	int GameOver = 0;
 	int Side = NOUGHTS;
@@ -400,6 +535,7 @@ void *RunGame() {
 	int board[82];
 	InitialiseBoard(&board1);
 	PrintBoard(&board1);
+<<<<<<< HEAD
 		while (!GameOver) { // while game is not over
 			if (Side==NOUGHTS) {
 	struct timeval tv3, tv4;
@@ -419,6 +555,26 @@ void *RunGame() {
 	Side=NOUGHTS;
 	PrintBoard(&board1);
 	printf("%s PLAYER MOVE \n", KNRM);
+=======
+	while (!GameOver) { // while game is not over
+	if (Side==NOUGHTS) {
+	  struct timeval tv3, tv4;
+	  gettimeofday(&tv3, NULL);
+	  LastMoveMade = GetHumanMove (&board0, &board1, Side);
+	  MakeMove(&board[0], LastMoveMade, Side);
+	  Side=CROSSES;
+	  gettimeofday(&tv4, NULL);
+	  printf ("Total time = %f seconds\n",
+		  (double) (tv4.tv_usec - tv3.tv_usec) / 1000000 +
+		  (double) (tv4.tv_sec - tv3.tv_sec));
+	  printf("%s COMPUTER MOVE \n", KNRM);		
+	} else {
+	  LastMoveMade = GetComputerMove(&board0, &board1, Side);
+	  MakeMove(&board[0], LastMoveMade, Side);
+	  Side=NOUGHTS;
+	  PrintBoard(&board[0]);
+	  printf("%s PLAYER MOVE \n", KNRM);
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 	}
 	printf("handled by thread, thread id: %d\n", data->tid);
 	gettimeofday(&thr_func2, NULL);
@@ -435,6 +591,7 @@ void *RunGame() {
 				printf("Human Wins\n");
 			}
 		}	
+<<<<<<< HEAD
 		if(!HasEmpty(board)) {
 			printf("Game Over! I know, it's a shame it can't last forever! \n");
 			GameOver= 1;
@@ -445,11 +602,28 @@ void *RunGame() {
 		}
 
 int main(string *arg, int argc ) {
+=======
+	if(!HasEmpty(board)) {
+	printf("Game Over! I know, it's a shame it can't last forever! \n");
+	GameOver= 1;
+	printf("It's a draw! Come on, try harder for the win next time!");
+}
+}
+	// pthread_exit(NULL);
+}
+
+int main(/* int *arg, int *board0, int *board1 */) {
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 struct timespec begin, end;
 double elapsed;
 clock_gettime(CLOCK_MONOTONIC, &begin);
 
+<<<<<<< HEAD
 RunGame(&arg, &board0, &board1, ply, positions, maxPly, side); // LS 22.10.18 amended main func exec
+=======
+ RunGame();
+// thr_func(*arg, *board0, *board1); // LS 22.10.18 amended main func exec
+>>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
 
 clock_gettime(CLOCK_MONOTONIC, &end);
 elapsed = end.tv_sec - begin.tv_sec;

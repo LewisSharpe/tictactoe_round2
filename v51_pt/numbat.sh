@@ -12,11 +12,7 @@ for ((n=0;n<10;n++));
 
 do 
 echo "NEW ITERATION";  
-<<<<<<< HEAD
-./ttt_pt_ver2;
-=======
-./ttt_pt_arvc;
->>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
+./ttt_pt;
 
 done;
 

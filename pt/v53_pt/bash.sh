@@ -1,6 +1,8 @@
 #!/bin/bash
-
+<<<<<<< HEAD
 # This script run the Minimax algorithm and print the resulting output the file 'output.txt'.
+=======
+>>>>>>> 8bf6052e25bc27896d7e473a1260c348f17451d1
 #SBATCH --job-name=my_job
 #SBATCH --output=output.txt
 #
@@ -9,9 +11,5 @@
 #SBATCH --time=10:00
 #SBATCH --mem-per-cpu=6000
 
-<<<<<<< HEAD
-./ttt_pt_ver2
-=======
-./ttt_pt_arvc
->>>>>>> e8e33ef7fd43f9994ba231c86b32421ecb020a00
+./ttt_pt
 
