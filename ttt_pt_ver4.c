@@ -1,5 +1,5 @@
 // Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
-// Time-stamp: <Fri Nov 16 2018 17:33:04 hwloidl>
+// Time-stamp: <Fri Nov 16 2018 17:48:42 hwloidl>
 // Lewis Sharpe
 // 25.08.2017 
 // compile (seq): gcc -DSEQ -o ttt_pt ttt_pt.c
@@ -210,7 +210,7 @@ int MinMax (minmax_thread_args *arg) {
 	assert(LOOKS_LIKE_BOARD(board1));
 #endif	
 
-	printf(".. MinMax with ply=%d and side=%d", ply, side);
+	printf(".. MinMax with ply=%d and side=%d and board @ %p", ply, side, board1);
 	PrintBoard(board1);
 
 	// can't use GLOBAL vars in the pthreads version
@@ -332,13 +332,21 @@ void InitialiseBoard (int **board) { /* NB: this is the address of a var holding
 	char pceChars[] = "OX|-";/* board chars */	
 	printf("\n\nBoard (@ %p):\n\n", board);
 	for(index = 0; index < loopcount; ++index) { /* for the 9 pos on board */
-		if(index!=0 && index%7==0) { /* if 3 pos on each line */
-			printf("\n\n");
-		}
-		printf("%4c",pceChars[board[ConvertTo25[index]]]);
+#ifdef DEBUG
+	  // a board entry must be one of these 4 values; if not, the memory is corrupted
+	  assert(board[ConvertTo25[index]] == NOUGHTS ||
+		 board[ConvertTo25[index]] == CROSSES ||
+		 board[ConvertTo25[index]] == BORDER ||
+		 board[ConvertTo25[index]] == EMPTY);
+#endif
+	  if(index!=0 && index%7==0) { /* if 3 pos on each line */
+	    printf("\n\n");
+	  }
+	  printf("%4c",pceChars[board[ConvertTo25[index]]]);
 	}
 	printf("\n");
 }
+ 
 int GetNextBest(const int *board) {
 	/* if comp didn't find winning move, place priority for move in middle */
 	/* if middle not available, then */
