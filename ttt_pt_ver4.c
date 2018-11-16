@@ -1,5 +1,5 @@
 // Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
-// Time-stamp: <Fri Nov 16 2018 16:15:09 hwloidl>
+// Time-stamp: <Fri Nov 16 2018 17:33:04 hwloidl>
 // Lewis Sharpe
 // 25.08.2017 
 // compile (seq): gcc -DSEQ -o ttt_pt ttt_pt.c
@@ -44,22 +44,23 @@
 #define KWHT  ""
 #endif
 
+// size in one dim:  7x7 board (proper)
+#define BOARD_SIZE 7
+
 #ifdef DEBUG
-#define NO_OF_CELLS 50
+#define NO_OF_CELLS ((BOARD_SIZE+1)*(BOARD_SIZE+1)+1)
+#define LOOP_COUNT  (BOARD_SIZE*BOARD_SIZE)
 #define MAGIC_CONST 0xdeadbeef
 #else
-#define NO_OF_CELLS 49
+#define NO_OF_CELLS ((BOARD_SIZE+1)*(BOARD_SIZE+1))
+#define LOOP_COUNT  (BOARD_SIZE*BOARD_SIZE)
 #endif
 
 /* enum int const chars */
 enum { NOUGHTS, CROSSES, BORDER, EMPTY };
 enum { HUMANWIN, COMPWIN, DRAW };
 
-#ifdef DEBUG
-int loopcount = NO_OF_CELLS-1;
-#else
-int loopcount = NO_OF_CELLS;
-#endif
+int loopcount = LOOP_COUNT;
 
 #ifdef DEBUG
 #define LOOKS_LIKE_BOARD(board)  (board[NO_OF_CELLS-1] == MAGIC_CONST)
@@ -68,8 +69,9 @@ int loopcount = NO_OF_CELLS;
 #endif
 
 /* var definitions */
+// needs change for generalisation to arbitrary board size -- HWL
 const int Directions[4] = {1, 7, 8, 14}; // 1 7 8 14  
-const int ConvertTo25[NO_OF_CELLS] = { /* positions in 25 array */
+const int ConvertTo25[LOOP_COUNT] = { /* positions in 25 array */
         11,12,13,14,15,16,17,
         20,21,22,23,24,25,26,
         29,30,31,32,33,34,35,
@@ -211,7 +213,6 @@ int MinMax (minmax_thread_args *arg) {
 	printf(".. MinMax with ply=%d and side=%d", ply, side);
 	PrintBoard(board1);
 
-
 	// can't use GLOBAL vars in the pthreads version
         if(ply > maxPly) // if current pos depper than max dep
                  maxPly = ply; // max ply set to current pos
@@ -239,8 +240,8 @@ int MinMax (minmax_thread_args *arg) {
 	  for (t=0; t<NUM_THREADS && index < MoveCount; t++, index++) {
             // these declarations will hide the board0 and board1 arguments to this fct!! -- HWL
 	    // thread_data_t *board0, *board1;
-            const int asz = sizeof(thread_data_t); // size of the argument struct
-            const int bsz = sizeof(NO_OF_CELLS*sizeof(int)); // size of the board, pointed to
+            const int asz = sizeof(minmax_thread_args); // size of the argument struct
+            const int bsz = NO_OF_CELLS*sizeof(int); // size of the board, pointed to
 
 	    // allocate mem for the argument struct
 	    minmax_thread_args *new_thread_arg = (minmax_thread_args *)malloc(asz);
@@ -313,14 +314,17 @@ int MinMax (minmax_thread_args *arg) {
 
 void InitialiseBoard (int **board) { /* NB: this is the address of a var holding a pointer to our board array */  
 	int index = 0; /* index for looping */
-	*board = (int*)malloc(82*sizeof(int)); /* we need to write into the variable, whose address is in board; why 82 ints here, but 49 above */
+	*board = (int*)malloc(NO_OF_CELLS*sizeof(int)); /* size of the board, including border ; we need to write into the variable, whose address is in board;  */
 	printf("\nCreated board @ %p; initialising ...\n\n", *board);
-	for (index = 0; index < 82; ++index) {
+	for (index = 0; index < NO_OF_CELLS; ++index) {
 	  (*board)[index] = BORDER;              /* all squares to border square */
 	}
 	for (index = 0; index < loopcount; ++index) {
 	  (*board)[ConvertTo25[index]] = EMPTY   /* all squares to empty */;
 	}
+#ifdef DEBUG
+	(*board)[NO_OF_CELLS-1] = MAGIC_CONST;
+#endif
 }
 
  void PrintBoard(/* const */ int *board) {
@@ -390,7 +394,7 @@ int GetComputerMove(int *board0, int *board1, const int side) {
         int best;
 	// where are asz and bsz defined
 	int asz = sizeof(minmax_thread_args);
-	int bsz = 82*sizeof(int);
+	int bsz = NO_OF_CELLS*sizeof(int);
 
 #ifdef DEBUG
 	assert(LOOKS_LIKE_BOARD(board1));
@@ -428,7 +432,7 @@ int GetHumanMove(int *board0, int *board1, const int side) {
         int best;
 	// where are asz and bsz defined
 	int asz = sizeof(minmax_thread_args);
-	int bsz = 82*sizeof(int);
+	int bsz = NO_OF_CELLS*sizeof(int);
 
 #ifdef DEBUG
 	assert(LOOKS_LIKE_BOARD(board1));
@@ -480,7 +484,7 @@ void RunGame(){
 	int Side = NOUGHTS;
 	int LastMoveMade = 0;
 	// int board[82];   // don't use a local array, rather do malloc inside InitialiseBoard
-	int board0[82];   // UNUSED and not needed anyway
+	int board0[NO_OF_CELLS];   // UNUSED and not needed anyway
 	int *board1;
 	InitialiseBoard(&board1); // this allocates the board, and returns a valid pointer board1
 	printf("board1 after init (@ %p):\n", board1);
