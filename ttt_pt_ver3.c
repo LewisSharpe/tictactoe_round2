@@ -40,7 +40,6 @@
 #define KCYN  ""
 #define KWHT  ""
 #endif
-
 /* enum int const chars */
 enum { NOUGHTS, CROSSES, BORDER, EMPTY };
 enum { HUMANWIN, COMPWIN, DRAW };
@@ -278,18 +277,18 @@ void InitialiseBoard (int **board) { /* NB: this is the address of a var holding
 	}
 }
 
- void PrintBoard(/* const */ int *board) {
+ void PrintBoard(int *board) {
 	int index = 0;
 	char pceChars[] = "OX|-";/* board chars */	
 	printf("\n\nBoard (@ %p):\n\n", board);
 	for(index = 0; index < 49; ++index) { /* for the 9 pos on board */
 		if(index!=0 && index%7==0) { /* if 3 pos on each line */
 			printf("\n\n");
-		}
+			}
 		printf("%4c",pceChars[board[ConvertTo25[index]]]);
-	}
-	printf("\n");
 }
+}
+
 int GetNextBest(const int *board) {
 /* if comp didn't find winning move, place priority for move in middle */
 /* if middle not available, then */
@@ -443,7 +442,7 @@ void RunGame(){
 	  printf("%s COMPUTER MOVE \n", KNRM);		
 	} else {
 	  LastMoveMade = GetComputerMove(&board0, &board1, Side);
-	  MakeMove(&board1[0], LastMoveMade, Side);
+	  MakeMove(&board1, LastMoveMade, Side);
 	  Side=NOUGHTS;
 	  PrintBoard(board1); // CHECK board1 or board0
 	  printf("%s PLAYER MOVE \n", KNRM);
@@ -484,15 +483,11 @@ int main(/* char [] args, int argc */
   struct timespec begin, end;
   double elapsed;
   clock_gettime(CLOCK_MONOTONIC, &begin);
-
   RunGame();
-  // thr_func(*arg, *board0, *board1); // LS 22.10.18 amended main func exec
-
   clock_gettime(CLOCK_MONOTONIC, &end);
   elapsed = end.tv_sec - begin.tv_sec;
   elapsed += (end.tv_nsec - begin.tv_nsec) / 1000000000.0;
   printf("Elapsed game time = %lf seconds", elapsed);
-  return EXIT_SUCCESS;
 }
 
 
