@@ -13,6 +13,9 @@ for ((n=0;n<10;n++));
 do 
 echo "NEW ITERATION";  
 ./ttt_pt_ver2;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4725639e929f84e31d1236364ab89fb24e9ff000
 done;
 
