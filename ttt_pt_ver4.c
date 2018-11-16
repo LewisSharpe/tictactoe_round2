@@ -1,5 +1,5 @@
 // Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
-// Time-stamp: <Fri Nov 16 2018 15:58:38 hwloidl>
+// Time-stamp: <Fri Nov 16 2018 16:15:09 hwloidl>
 // Lewis Sharpe
 // 25.08.2017 
 // compile (seq): gcc -DSEQ -o ttt_pt ttt_pt.c
@@ -104,6 +104,11 @@ typedef struct {
 } minmax_thread_args;
 
 // -----------------------------------------------------------------------------
+// Prototypes:
+
+void PrintBoard(/* const */ int *board);
+
+// -----------------------------------------------------------------------------
 
 int GetNumForDir (int startSq, const int dir, const int *board, const int us) {
 	int found = 0; 
@@ -200,9 +205,14 @@ int MinMax (minmax_thread_args *arg) {
 	assert(side == NOUGHTS || side == CROSSES); 
 	assert(board1[0] == NOUGHTS || board1[0] == CROSSES || board1[0] ==  BORDER || board1[0] ==  EMPTY);
 #ifdef DEBUG
-	assert(LOOKS_LIKE_BOARD(board));
+	assert(LOOKS_LIKE_BOARD(board1));
 #endif	
-        // can't use GLOBAL vars in the pthreads version
+
+	printf(".. MinMax with ply=%d and side=%d", ply, side);
+	PrintBoard(board1);
+
+
+	// can't use GLOBAL vars in the pthreads version
         if(ply > maxPly) // if current pos depper than max dep
                  maxPly = ply; // max ply set to current pos
         positions++; // increment positions, as visited new position
@@ -382,6 +392,10 @@ int GetComputerMove(int *board0, int *board1, const int side) {
 	int asz = sizeof(minmax_thread_args);
 	int bsz = 82*sizeof(int);
 
+#ifdef DEBUG
+	assert(LOOKS_LIKE_BOARD(board1));
+#endif	
+
 	// construct the buffer below -- HWL
 	// allocate mem for the argument struct
 	minmax_thread_args *thread_arg = (minmax_thread_args *)malloc(asz);
@@ -416,6 +430,9 @@ int GetHumanMove(int *board0, int *board1, const int side) {
 	int asz = sizeof(minmax_thread_args);
 	int bsz = 82*sizeof(int);
 
+#ifdef DEBUG
+	assert(LOOKS_LIKE_BOARD(board1));
+#endif	
 	// construct the buffer below -- HWL
 	// allocate mem for the argument struct
 	minmax_thread_args *thread_arg = (minmax_thread_args *)malloc(asz);
@@ -468,6 +485,7 @@ void RunGame(){
 	InitialiseBoard(&board1); // this allocates the board, and returns a valid pointer board1
 	printf("board1 after init (@ %p):\n", board1);
 	PrintBoard(board1);
+
 	while (!GameOver) { // while game is not over
 	if (Side==NOUGHTS) {
 	  struct timeval tv3, tv4;
