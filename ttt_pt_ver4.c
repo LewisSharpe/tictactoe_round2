@@ -174,8 +174,13 @@ int EvalForWin(const int *board, const int us) {
 // in the sequential version, you probably have just board1, and side as input;
 // use a struct in this case as well, so that you can share code with the pthreads version
 <<<<<<< HEAD
+<<<<<<< HEAD
 int MinMax (minmax_thread_args *arg)  {
 #else // in the pthreads version, use a struct as in the pthreads2.c sample code -- HWL
+=======
+int MinMax (minmax_thread_args *arg /* int        *board0, int *board1, int side */) {
+#else// in the pthreads version, use a struct as in the pthreads2.c sample code -- HWL
+>>>>>>> 55b4fc6dc6c6b65d1a5fbf50578037d9664e77e2
 =======
 int MinMax (minmax_thread_args *arg /* int        *board0, int *board1, int side */) {
 #else// in the pthreads version, use a struct as in the pthreads2.c sample code -- HWL
@@ -215,7 +220,12 @@ int MinMax (minmax_thread_args *arg) {
 	assert(LOOKS_LIKE_BOARD(board1));
 #endif	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	printf(".. MinMax with ply %d and side %d and board %p", ply, side, board1);
+=======
+
+	printf(".. MinMax with ply=%d and side=%d and board @ %p", ply, side, board1);
+>>>>>>> 55b4fc6dc6c6b65d1a5fbf50578037d9664e77e2
 =======
 
 	printf(".. MinMax with ply=%d and side=%d and board @ %p", ply, side, board1);
@@ -439,7 +449,10 @@ int GetComputerMove(int *board0, int *board1, const int side) {
 	return best;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 55b4fc6dc6c6b65d1a5fbf50578037d9664e77e2
 =======
 >>>>>>> 55b4fc6dc6c6b65d1a5fbf50578037d9664e77e2
 int GetHumanMove(int *board0, int *board1, const int side) {
@@ -474,7 +487,11 @@ int GetHumanMove(int *board0, int *board1, const int side) {
 	thread_arg->res = (int*)malloc(sizeof(int));
 	// copy board to board1 into structure
 <<<<<<< HEAD
+<<<<<<< HEAD
 	memcpy(thread_arg->board1, board1, asz); // ORDER: dest, source, size
+=======
+	memcpy(thread_arg->board1, board1, bsz); // ORDER: dest, source, size
+>>>>>>> 55b4fc6dc6c6b65d1a5fbf50578037d9664e77e2
 =======
 	memcpy(thread_arg->board1, board1, bsz); // ORDER: dest, source, size
 >>>>>>> 55b4fc6dc6c6b65d1a5fbf50578037d9664e77e2
@@ -486,7 +503,10 @@ int GetHumanMove(int *board0, int *board1, const int side) {
         return best;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 55b4fc6dc6c6b65d1a5fbf50578037d9664e77e2
 =======
 >>>>>>> 55b4fc6dc6c6b65d1a5fbf50578037d9664e77e2
 int HasEmpty(const int *board) { /* Has board got empty sq */
