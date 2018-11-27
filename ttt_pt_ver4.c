@@ -1,5 +1,5 @@
 // Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
-// Time-stamp: <Fri Nov 16 2018 17:48:42 hwloidl>
+// Time-stamp: <Tue Nov 27 2018 21:55:05 hwloidl>
 // Lewis Sharpe
 // 25.08.2017 
 // compile (seq): gcc -DSEQ -o ttt_pt ttt_pt.c
@@ -83,9 +83,9 @@ const int ConvertTo25[LOOP_COUNT] = { /* positions in 25 array */
 
 const int InMiddle = 41;
 const int Corners[4] = { 11, 17, 65, 71 };
-int ply = 0; // how many moves deep into tree
-int positions = 0; // no of pos searched
-int maxPly = 0; // how deep we have went in tree
+int ply = 0;         // how many moves deep into tree
+int positions = 0;   // no of pos searched
+int maxPly = 0;      // how deep we have went in tree
 
 /* create thread argument struct for thr_func() */
 /* this looks like a generic data structure, not one for this app -- HWL */
@@ -200,9 +200,14 @@ int MinMax (minmax_thread_args *arg) {
 
 	/* pthreads defintions */
 	pthread_t thr[NUM_THREADS];
-	minmax_thread_args thread_args[NUM_THREADS];
+	minmax_thread_args *thread_args[NUM_THREADS];
 	int i, t, rc[i];
-	        
+
+	// used in loop, to pass arguments to recursive calls
+	const int asz = sizeof(minmax_thread_args);  // size of the argument struct
+	const int bsz = NO_OF_CELLS*sizeof(int);     // size of the board, pointed to
+	minmax_thread_args *new_thread_arg;
+	
 	/* HERE <============== */
 	assert(side == NOUGHTS || side == CROSSES); 
 	assert(board1[0] == NOUGHTS || board1[0] == CROSSES || board1[0] ==  BORDER || board1[0] ==  EMPTY);
@@ -240,13 +245,11 @@ int MinMax (minmax_thread_args *arg) {
 	  for (t=0; t<NUM_THREADS && index < MoveCount; t++, index++) {
             // these declarations will hide the board0 and board1 arguments to this fct!! -- HWL
 	    // thread_data_t *board0, *board1;
-            const int asz = sizeof(minmax_thread_args); // size of the argument struct
-            const int bsz = NO_OF_CELLS*sizeof(int); // size of the board, pointed to
 
 	    // allocate mem for the argument struct
-	    minmax_thread_args *new_thread_arg = (minmax_thread_args *)malloc(asz);
+	    new_thread_arg = (minmax_thread_args *)malloc(asz);
 
-            thread_args[t] = *new_thread_arg; // LS 22.10.2018 amended missing pointer 
+            thread_args[t] = new_thread_arg; // LS 22.10.2018 amended missing pointer ; doesn't need the '*', BUT the type for 'thread_args' was wrong
 
 	    // allocate mem for the board in arg
             new_thread_arg->board1 = (int*)malloc(bsz);
