@@ -173,7 +173,6 @@ int EvalForWin(const int *board, const int us) {
 #ifdef SEQ
 // in the sequential version, you probably have just board1, and side as input;
 // use a struct in this case as well, so that you can share code with the pthreads version
-
 int MinMax (minmax_thread_args *arg /* int        *board0, int *board1, int side */) {
 #else// in the pthreads version, use a struct as in the pthreads2.c sample code -- HWL
 int MinMax (minmax_thread_args *arg) {
@@ -201,7 +200,7 @@ int MinMax (minmax_thread_args *arg) {
 
 	/* pthreads defintions */
 	pthread_t thr[NUM_THREADS];
-	minmax_thread_args *thread_args[NUM_THREADS];
+	minmax_thread_args thread_args[NUM_THREADS];
 	int i, t, rc[i];
 	        
 	/* HERE <============== */
@@ -210,6 +209,7 @@ int MinMax (minmax_thread_args *arg) {
 #ifdef DEBUG
 	assert(LOOKS_LIKE_BOARD(board1));
 #endif	
+
 //	printf(".. MinMax with ply %d and side %d and board %p", ply, side, board1);
 //		PrintBoard(board1);
 
@@ -245,7 +245,9 @@ int MinMax (minmax_thread_args *arg) {
 
 	    // allocate mem for the argument struct
 	    minmax_thread_args *new_thread_arg = (minmax_thread_args *)malloc(asz);
-            thread_args[t] = new_thread_arg; // LS 22.10.2018 amended missing pointer 
+
+            thread_args[t] = *new_thread_arg; // LS 22.10.2018 amended missing pointer 
+
 	    // allocate mem for the board in arg
             new_thread_arg->board1 = (int*)malloc(bsz);
 	    new_thread_arg->len = NO_OF_CELLS; // BAD magic constant
@@ -461,7 +463,6 @@ int GetHumanMove(int *board0, int *board1, const int side) {
 	thread_arg->side = side;
 	thread_arg->res = (int*)malloc(sizeof(int));
 	// copy board to board1 into structure
-
 	memcpy(thread_arg->board1, board1, bsz); // ORDER: dest, source, size
 
         best = MinMax(thread_arg); // NO, same as above -- HWL
@@ -470,6 +471,7 @@ int GetHumanMove(int *board0, int *board1, const int side) {
 	       thread_arg->maxPly, best);
         return best;
 }
+
 int HasEmpty(const int *board) { /* Has board got empty sq */
 	int index = 0;
 	for (index = 0; index < loopcount; ++index) {
