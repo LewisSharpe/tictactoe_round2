@@ -1,5 +1,5 @@
 // Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
-// Time-stamp: <Fri Nov 30 2018 17:51:12 hwloidl>
+// Time-stamp: <Fri Nov 30 2018 18:04:28 hwloidl>
 // Lewis Sharpe
 // 25.08.2017 
 // compile (seq): gcc -DSEQ -o ttt_pt ttt_pt.c
@@ -178,13 +178,17 @@ int EvalForWin(const int *board, const int us) {
   return 0;
 }
 
+int EvalForWin2(const int *board, const int us) {
+  return 0;
+}
+
 // static evaluation function; 
-int EvalCurrentBoard(const int *board, const int us) {
+int EvalCurrentBoard(const int *board, const int side) {
   int score;
-  score = EvalForWin(board1, side); // 1 for win, 0 for unknown
+  score = EvalForWin(board, side); // 1 for win, 0 for unknown
   if (score == 1)
     return MAX_SCORE;
-  score = EvalForWin2(board1, side); // 1 for win, 0 for unknown
+  score = EvalForWin2(board, side); // 1 for win, 0 for unknown
   if (score == 1)
     return MAX_SCORE/10;
   return MAX_SCORE/100;
