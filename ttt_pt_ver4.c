@@ -1,5 +1,5 @@
 // Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
-// Time-stamp: <Fri Nov 30 2018 16:17:47 hwloidl>
+// Time-stamp: <Fri Nov 30 2018 17:51:12 hwloidl>
 // Lewis Sharpe
 // 25.08.2017 
 // compile (seq): gcc -DSEQ -o ttt_pt ttt_pt.c
@@ -68,11 +68,15 @@ int loopcount = LOOP_COUNT;
 #define LOOKS_LIKE_BOARD(board)
 #endif
 
+#define NO_OF_DIRS 3
+#define MAX_SCORE  1000
+
 /* var definitions */
 // needs change for generalisation to arbitrary board size -- HWL
-const int Directions[4] = {1, 7, 8, 14}; // 1 7 8 14  
+// const int Directions[4] = {1, 7, 8, 14}; // 1 7 8 14
+const int Directions[NO_OF_DIRS] = {1, 9, 10}; // 1 7 8 14  
 const int ConvertTo25[LOOP_COUNT] = { /* positions in 25 array */
-  //  0, 1, 2, 3, 4, 5, 6, 7, 8,
+  //  1, 2, 3, 4, 5, 6, 7, 8, 9
         11,12,13,14,15,16,17,
         20,21,22,23,24,25,26,
         29,30,31,32,33,34,35,
@@ -80,7 +84,7 @@ const int ConvertTo25[LOOP_COUNT] = { /* positions in 25 array */
         47,48,49,50,51,52,53,
         56,57,58,59,60,61,62,
         65,66,67,68,69,70,71,
-  // 72,73,74,75,76,77,78,79,80
+  // 73,74,75,76,77,78,79,80.81
 };
 
 const int InMiddle = 41;
@@ -133,12 +137,12 @@ int FindThreeInARow(const int *board, const int ourindex, const int us) {
 	
         assert(us == NOUGHTS || us == CROSSES); 
   
-        // for(DirIndex - 0; DirIndex <4; ++DirIndex) { // ????????
-	for(DirIndex = 0; DirIndex<4; ++DirIndex) {
+        // for(DirIndex - 0; DirIndex <NO_OF_DIRS; ++DirIndex) { // ????????
+	for(DirIndex = 0; DirIndex<NO_OF_DIRS; ++DirIndex) {
                 Dir = Directions[DirIndex];
-		assert(ourindex + Dir >=0 && ourindex + Dir < 81);
+		assert(ourindex + Dir >=1 && ourindex + Dir <= 81); // index check
                 threeCount += GetNumForDir(ourindex + Dir, Dir, board, us);
-		assert(ourindex + Dir * -1 >= 0 && ourindex + Dir * -1 < 81);
+		assert(ourindex + Dir * -1 >= 1 && ourindex + Dir * -1 <= 81); // index check
                 threeCount += GetNumForDir(ourindex + Dir * -1, Dir * -1, board, us);
                 if (threeCount == 3) {
                         break;
@@ -172,6 +176,18 @@ int EvalForWin(const int *board, const int us) {
   if(FindThreeInARowAllBoard(board, us ^ 1) != 0) // opponent win?
     return -1; // opp win confirmed
   return 0;
+}
+
+// static evaluation function; 
+int EvalCurrentBoard(const int *board, const int us) {
+  int score;
+  score = EvalForWin(board1, side); // 1 for win, 0 for unknown
+  if (score == 1)
+    return MAX_SCORE;
+  score = EvalForWin2(board1, side); // 1 for win, 0 for unknown
+  if (score == 1)
+    return MAX_SCORE/10;
+  return MAX_SCORE/100;
 }
 
 #ifdef SEQ
@@ -219,12 +235,18 @@ int MinMax (minmax_thread_args *arg) {
 	assert(LOOKS_LIKE_BOARD(board1));
 #endif	
 
-//	printf(".. MinMax with ply %d and side %d and board %p", ply, side, board1);
-//		PrintBoard(board1);
-
+	//	printf(".. MinMax with ply %d and side %d and board %p", ply, side, board1);
+	//	PrintBoard(board1);
+		
 	// can't use GLOBAL vars in the pthreads version
+	// if deeper in the tree than mandated by maxPly, then terminated the recursions and return
+	/*
         if(ply > maxPly) // if current pos depper than max dep
                  maxPly = ply; // max ply set to current pos
+	*/
+        if(ply > maxPly) // if current pos depper than max dep
+	  return EvalCurrentBoard(board1, side);
+
         positions++; // increment positions, as visited new position
 	
         if(ply > 0) { /* remove the global variable -- HWL */
@@ -246,6 +268,8 @@ int MinMax (minmax_thread_args *arg) {
 	// MAIN LOOP	
         for(index = 0; index < MoveCount; ++index) {
           /* you probably only want to use the multi-threaded version in the top N levels; so need to pass the level as another argument / elem in the argumnet struct (like ply) and check whether the level is below the constant N  -- HWL */
+
+	  // do this in parallel-ready mode only; say, just for the top 3 levels
 	  for (t=0; t<NUM_THREADS && index < MoveCount; t++, index++) {
             // these declarations will hide the board0 and board1 arguments to this fct!! -- HWL
 	    // thread_data_t *board0, *board1;
@@ -273,6 +297,8 @@ int MinMax (minmax_thread_args *arg) {
 #ifdef SEQ 
             // needs update to use the arg struct in the sequential version as well  
             score = -MinMax(new_thread_arg); /* -MinMax(board0, side^1); */
+	    // probably need to calculate/update best score here (and remember which move gave this score)
+	    bestScore = (score>bestScore) ? score : bestScore;
 #else
             rc[t] = pthread_create(&thr[i], NULL, MinMax, (void *) thread_args *new_thread_arg[t]); // HWL
 #endif
@@ -315,6 +341,7 @@ int MinMax (minmax_thread_args *arg) {
 
 #ifdef DEBUG // LS 22.10.18
 // DO WORK
+// ???	
 print(0xdeadbeef);
 #endif
     }
@@ -426,7 +453,7 @@ int GetComputerMove(int *board0, int *board1, const int side) {
 	thread_arg->len = NO_OF_CELLS; // BAD magic constant
 	thread_arg->positions = 0;
 	thread_arg->ply = 0;
-	thread_arg->maxPly = 0;
+	thread_arg->maxPly = 3;
 	thread_arg->side = side;
 	thread_arg->res = (int*)malloc(sizeof(int));
 	// copy board to board1 into structure
@@ -466,7 +493,7 @@ int GetHumanMove(int *board0, int *board1, const int side) {
 #endif
 	thread_arg->positions = 0;
 	thread_arg->ply = 0;
-	thread_arg->maxPly = 0;
+	thread_arg->maxPly = 3;
 	thread_arg->side = side;
 	thread_arg->res = (int*)malloc(sizeof(int));
 	// copy board to board1 into structure
