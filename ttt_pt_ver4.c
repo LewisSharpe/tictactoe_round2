@@ -1,5 +1,5 @@
 // Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
-// Time-stamp: <Tue Nov 27 2018 21:55:05 hwloidl>
+// Time-stamp: <Fri Nov 30 2018 16:17:47 hwloidl>
 // Lewis Sharpe
 // 25.08.2017 
 // compile (seq): gcc -DSEQ -o ttt_pt ttt_pt.c
@@ -72,6 +72,7 @@ int loopcount = LOOP_COUNT;
 // needs change for generalisation to arbitrary board size -- HWL
 const int Directions[4] = {1, 7, 8, 14}; // 1 7 8 14  
 const int ConvertTo25[LOOP_COUNT] = { /* positions in 25 array */
+  //  0, 1, 2, 3, 4, 5, 6, 7, 8,
         11,12,13,14,15,16,17,
         20,21,22,23,24,25,26,
         29,30,31,32,33,34,35,
@@ -79,6 +80,7 @@ const int ConvertTo25[LOOP_COUNT] = { /* positions in 25 array */
         47,48,49,50,51,52,53,
         56,57,58,59,60,61,62,
         65,66,67,68,69,70,71,
+  // 72,73,74,75,76,77,78,79,80
 };
 
 const int InMiddle = 41;
@@ -134,7 +136,9 @@ int FindThreeInARow(const int *board, const int ourindex, const int us) {
         // for(DirIndex - 0; DirIndex <4; ++DirIndex) { // ????????
 	for(DirIndex = 0; DirIndex<4; ++DirIndex) {
                 Dir = Directions[DirIndex];
+		assert(ourindex + Dir >=0 && ourindex + Dir < 81);
                 threeCount += GetNumForDir(ourindex + Dir, Dir, board, us);
+		assert(ourindex + Dir * -1 >= 0 && ourindex + Dir * -1 < 81);
                 threeCount += GetNumForDir(ourindex + Dir * -1, Dir * -1, board, us);
                 if (threeCount == 3) {
                         break;
