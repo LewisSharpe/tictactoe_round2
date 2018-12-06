@@ -177,6 +177,7 @@ int FindThreeInARow(const int *board, const int ourindex, const int us) {
 		assert(ourindex + Dir >=1 && ourindex + Dir <= 81); // index check
                 threeCount += GetNumForDir(ourindex + Dir, Dir, board, us);
 //		assert(ourindex + Dir * -1 >= 1 && ourindex + Dir * -1 <= 81); // index check
+		assert(ourindex + Dir * -1 >= 1 && ourindex + Dir * -1 <= 81); // index check
                 threeCount += GetNumForDir(ourindex + Dir * -1, Dir * -1, board, us);
                 if (threeCount == 3) {
                         break;
@@ -202,7 +203,6 @@ int FindThreeInARowAllBoard(const int *board, const int us) {
 	return threeFound;
 }
 
-
 int EvalForWin(const int *board, const int us) {
   // eval if move is win draw or loss
   assert(us == NOUGHTS || us == CROSSES); 
@@ -214,7 +214,7 @@ int EvalForWin(const int *board, const int us) {
 }
 
 int EvalForWin2(const int *board, const int us) {
- // eval if move is win draw or loss
+// eval if move is win draw or loss
   assert(us == NOUGHTS || us == CROSSES);
   if(FindTwoInARowAllBoard(board, us) != 0)
     return 1; // player win confirmed
@@ -347,7 +347,6 @@ int MinMax (minmax_thread_args *arg) {
 	    bestScore = (score>bestScore) ? score : bestScore;
 
 // cut branch
-
 #else
             rc[t] = pthread_create(&thr[i], NULL, MinMax, (void *) thread_args *new_thread_arg[t]); // HWL
 #endif
@@ -609,6 +608,7 @@ void RunGame(){
 	printf ("elapsed time performing move: = %f seconds\n",
          (double) (thr_func2.tv_usec - thr_func1.tv_usec) / 1000000 +
          (double) (thr_func2.tv_sec - thr_func1.tv_sec));
+
  // if two in a row exists Game is over
         if(FindTwoInARow(board1, LastMoveMade, Side ^ 1) == 3) { // ???
                         printf("two found!\n");
