@@ -1,5 +1,5 @@
 // Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
-// Time-stamp: <Fri Nov 30 2018 18:04:28 hwloidl>
+// Time-stamp: <Fri Dec 07 2018 18:04:02 hwloidl>
 // Lewis Sharpe
 // 25.08.2017 
 // compile (seq): gcc -DSEQ -o ttt_pt ttt_pt.c
@@ -70,6 +70,7 @@ int loopcount = LOOP_COUNT;
 
 #define NO_OF_DIRS 3
 #define MAX_SCORE  1000
+#define MIN_SCORE  -1000
 
 /* var definitions */
 // needs change for generalisation to arbitrary board size -- HWL
@@ -84,14 +85,14 @@ const int ConvertTo25[LOOP_COUNT] = { /* positions in 25 array */
         47,48,49,50,51,52,53,
         56,57,58,59,60,61,62,
         65,66,67,68,69,70,71,
-  // 73,74,75,76,77,78,79,80.81
+  // 73,74,75,76,77,78,79,80,81
 };
 
 const int InMiddle = 41;
 const int Corners[4] = { 11, 17, 65, 71 };
-int ply = 0;         // how many moves deep into tree
-int positions = 0;   // no of pos searched
-int maxPly = 0;      // how deep we have went in tree
+// int ply = 0;         // how many moves deep into tree
+// int positions = 0;   // no of pos searched
+// int maxPly = 0;      // how deep we have went in tree
 
 /* create thread argument struct for thr_func() */
 /* this looks like a generic data structure, not one for this app -- HWL */
@@ -114,7 +115,9 @@ typedef struct {
 // -----------------------------------------------------------------------------
 // Prototypes:
 
+int number_of_pieces(/* const */ int *board);
 void PrintBoard(/* const */ int *board);
+void PrintList(int *list, int len);
 
 // -----------------------------------------------------------------------------
 
@@ -175,10 +178,21 @@ int FindThreeInARow(const int *board, const int ourindex, const int us) {
         // for(DirIndex - 0; DirIndex <NO_OF_DIRS; ++DirIndex) { // ????????
 	for(DirIndex = 0; DirIndex<NO_OF_DIRS; ++DirIndex) {
                 Dir = Directions[DirIndex];
+		if (!(ourindex + Dir >=1 && ourindex + Dir <= 81)) {
+		  PrintBoard(board);
+		  fprintf(stderr,"** ERROR: index is %d\n", ourindex + Dir);
+		  exit(2);
+		}
 		assert(ourindex + Dir >=1 && ourindex + Dir <= 81); // index check
                 threeCount += GetNumForDir(ourindex + Dir, Dir, board, us);
 //		assert(ourindex + Dir * -1 >= 1 && ourindex + Dir * -1 <= 81); // index check
-		assert(ourindex + Dir * -1 >= 1 && ourindex + Dir * -1 <= 81); // index check
+		if (!(ourindex + Dir * -1 >= 1 && ourindex + Dir * -1 <= 81)) {
+		  // PrintBoard(board);
+		  //fprintf(stderr,"** ERROR: index is %d\n", ourindex + Dir * -1);
+		  // exit(2);
+		  continue;
+		}
+		//assert(ourindex + Dir * -1 >= 1 && ourindex + Dir * -1 <= 81); // index check
                 threeCount += GetNumForDir(ourindex + Dir * -1, Dir * -1, board, us);
                 if (threeCount == 3) {
                         break;
@@ -248,6 +262,7 @@ int MinMax (minmax_thread_args *arg) {
 	int side = arg->side;
 	int ply = arg->ply;
 	int maxPly = arg->maxPly;
+	int positions = arg->positions;
 	// recursive function calling - min max will call again and again through tree - to maximise score
 	// check if there is a win
 	// generate tree for all move for side (ply or opp)
@@ -258,8 +273,8 @@ int MinMax (minmax_thread_args *arg) {
 	// defintions
         int MoveList[NO_OF_CELLS]; // 9 pos sqs on board
         int MoveCount = 0; // count of move
-        int bestScore = -2;
-        int score = -2; // current score of move
+        int bestScore = MIN_SCORE;
+        int score = MIN_SCORE; // current score of move
         int bestMove = -1; // best move with score
         int Move; // current move
         int index; // indexing for loop
@@ -281,21 +296,20 @@ int MinMax (minmax_thread_args *arg) {
 	assert(LOOKS_LIKE_BOARD(board1));
 #endif	
 
- printf(".. MinMax with ply %d and side %d and board %p", ply, side, board1);
-		PrintBoard(board1);
-		
+#ifdef VERBOSE	
+	printf(".. MinMax with ply %d and side %d and board %p", ply, side, board1);
+	PrintBoard(board1);
+#endif
+	
 	// can't use GLOBAL vars in the pthreads version
 	// if deeper in the tree than mandated by maxPly, then terminated the recursions and return
 	/*
         if(ply > maxPly) // if current pos depper than max dep
                  maxPly = ply; // max ply set to current pos
 	*/
-        if(ply > maxPly) // if current pos depper than max dep
+	// THRESHOLD <=============
+        if(ply > maxPly) // if current pos deeper than max dep, finish
 	  return EvalCurrentBoard(board1, side);
-
-// ATTEMPT at THRESHOLD
-if (ply < maxPly && score < bestScore)
-	positions--;
 
         positions++; // increment positions, as visited new position
 	
@@ -308,14 +322,28 @@ if (ply < maxPly && score < bestScore)
         }
 
         // if no win, fill Move List
+	{ int on = 1;
         // find empty cells
         for(index = 0; index < loopcount; ++index) {
 	  if( board1[ConvertTo25[index]] == EMPTY) {
 	    MoveList[MoveCount++] = ConvertTo25[index]; // current pos on loop
+#if 0
+	    if (on) {
+	      printf("__ Considering as first move: %d\n", index);
+	      on = 0;
+	    }
+#endif
 	  }
         }
+	}
+	/*
+	if (ply==0) {
+	  printf("__ Considering moves \n");
+	  PrintList(MoveList,MoveCount);
+	} 
+	*/  
 
-        // loop all moves - put on board
+	// loop all moves - put on board
 	// MAIN LOOP	
         for(index = 0; index < MoveCount; ++index) {
           /* you probably only want to use the multi-threaded version in the top N levels; so need to pass the level as another argument / elem in the argumnet struct (like ply) and check whether the level is below the constant N  -- HWL */
@@ -355,6 +383,12 @@ if (ply < maxPly && score < bestScore)
 #else
             rc[t] = pthread_create(&thr[i], NULL, MinMax, (void *) thread_args *new_thread_arg[t]); // HWL
 #endif
+	    free(new_thread_arg->board1);
+	    free(new_thread_arg);
+	    // sanity check: is this true in the execution?
+	    assert(MIN_SCORE<=score && score<=MAX_SCORE);
+	    // if (MIN_SCORE<=score && score<=MAX_SCORE) { } else { exit (1); }
+	    
 	    // undo moves
 	    board1[Move] = EMPTY; // else clear board; no longer needed if you use new_thread_arg -- HWL
 	    ply--; // decrement ply
@@ -384,10 +418,12 @@ if (ply < maxPly && score < bestScore)
 #ifdef SEQ
         // if not at top at tree, we return score
 	/* why do you return different things depending on the level in the tree?? -- HWL */
-	if(ply!=0)
-                return bestScore;
-        else
-                return bestMove;
+	if(ply!=0) {
+	  return bestScore;
+	} else {
+	  assert(board1[ConvertTo25[bestMove]] == EMPTY);
+	  return bestMove;
+	}
 #else
         *(thread_args[t].res) = bestScore; // amended from -> to . 22.10.18
 #endif
@@ -417,7 +453,23 @@ void InitialiseBoard (int **board) { /* NB: this is the address of a var holding
 #endif
 }
 
- void PrintBoard(/* const */ int *board) {
+int number_of_pieces(/* const */ int *board){
+  int index = 0, num = 0;
+  for(index = 0; index < loopcount; ++index) { /* for the 9 pos on board */
+    if (board[ConvertTo25[index]] == NOUGHTS) {
+      num++;
+    } else if (board[ConvertTo25[index]] == CROSSES) {
+      num++;
+    } else if (board[ConvertTo25[index]] == BORDER) {
+      /* nothing */
+    } else if (board[ConvertTo25[index]] == EMPTY) {
+      /* nothing */
+    }
+  }
+  return num;
+}
+   
+void PrintBoard(/* const */ int *board) {
 	int index = 0;
 	char pceChars[] = "OX|-";/* board chars */	
 	printf("\n\nBoard (@ %p):\n\n", board);
@@ -436,7 +488,18 @@ void InitialiseBoard (int **board) { /* NB: this is the address of a var holding
 	}
 	printf("\n");
 }
- 
+void PrintList(int *list, int len) {
+  // BROKEN  BROKEN  BROKEN  BROKEN  BROKEN  BROKEN  BROKEN 
+	int index = 0;
+	char  str1[120], str[120];
+	strcpy(str,"");
+	for(index = 0; index < len; ++index) { /* for the 9 pos on board */
+	  sprintf(str1, "%s, %d ", str, list[index]);
+	  strcpy(str, str1);
+	}
+	printf(str);
+}
+	
 int GetNextBest(const int *board) {
 	/* if comp didn't find winning move, place priority for move in middle */
 	/* if middle not available, then */
@@ -481,7 +544,7 @@ int GetWinningMove(int *board, const int side) {
 	} 
 	return ourMove;
 }
-int GetComputerMove(int *board0, int *board1, const int side) {
+int GetComputerMove(/* int *board0,*/ int *board1, const int side) {
         // int *arg; // undefined pointer	
 	/* WAS global vars; removed now
 	ply=0;
@@ -512,14 +575,18 @@ int GetComputerMove(int *board0, int *board1, const int side) {
 	// copy board to board1 into structure
 	memcpy(thread_arg->board1, board1, bsz); // ORDER: dest, source, size
 
+	printf("__ MinMax for board:\n");
+	PrintBoard(thread_arg->board1);
+
 	best = MinMax(thread_arg);       // need to pass a buffer here
+	assert(thread_arg->board1[ConvertTo25[best]] == EMPTY); // <<============= FAILING ASSERTION
 	
 	// best = MinMax(*arg); // NO: this passes an undefined pointer to MinMax
 	printf("++ Finished searching through positions in tree: %d max depth: %d best move: %d \n",
 	       thread_arg->positions, thread_arg->maxPly, best); // TODO: fix access to maxPly etc
 	return best;
 }
-int GetHumanMove(int *board0, int *board1, const int side) {
+int GetHumanMove(/* int *board0,*/ int *board1, const int side) {
         // int *arg;        // UNUSED
 	/* WAS global vars; removed now
 	ply=0;
@@ -552,7 +619,11 @@ int GetHumanMove(int *board0, int *board1, const int side) {
 	// copy board to board1 into structure
 	memcpy(thread_arg->board1, board1, bsz); // ORDER: dest, source, size
 
+	printf("__ MinMax for board:\n");
+	PrintBoard(thread_arg->board1);
+
         best = MinMax(thread_arg); // NO, same as above -- HWL
+	assert(thread_arg->board1[ConvertTo25[best]] == EMPTY);
 
         printf("++ Finished searching through positions in tree: %d max depth; %d best ",
 	       thread_arg->maxPly, best);
@@ -568,7 +639,7 @@ int HasEmpty(const int *board) { /* Has board got empty sq */
 }
 
 void MakeMove (int *board, const int sq, const int side) {
-	board[sq] = side; /* pos of square equal the side (either x or o) */
+	board[ConvertTo25[sq]] = side; /* pos of square equal the side (either x or o) */
 }
 
 /* thread function */
@@ -583,30 +654,55 @@ void RunGame(){
 	int Side = NOUGHTS;
 	int LastMoveMade = 0;
 	// int board[82];   // don't use a local array, rather do malloc inside InitialiseBoard
-	int board0[NO_OF_CELLS];   // UNUSED and not needed anyway
+	// int board0[NO_OF_CELLS];   // UNUSED and not needed anyway
 	int *board1;
+	int num = 0 ; // debugging only
+
 	InitialiseBoard(&board1); // this allocates the board, and returns a valid pointer board1
+
+#ifdef VERBOSE	
 	printf("board1 after init (@ %p):\n", board1);
 	PrintBoard(board1);
-
+#endif
+	
 	while (!GameOver) { // while game is not over
+	num++;
 	if (Side==NOUGHTS) {
+	  int m;
+	  m = number_of_pieces(board1);
+	  printf("\nPRE BOARD: %d ", num);
+	  PrintBoard(board1);
+	  LastMoveMade = GetHumanMove (/*board0,*/ board1, Side);
+	  printf("\n__ Suggested Human move: %d ", LastMoveMade);
+	  MakeMove(board1, LastMoveMade, Side); // CHECK: board0 here or board1
+	  PrintBoard(board1);
+	  assert(number_of_pieces(board1)==m+1);
+	  Side=CROSSES;
+	  //printf("%s COMPUTER MOVE \n", KNRM);		
+	} else {
+	  int m;
 	  struct timeval tv3, tv4;
 	  gettimeofday(&tv3, NULL);
-	  LastMoveMade = GetHumanMove (board0, board1, Side);
-	  MakeMove(board1, LastMoveMade, Side); // CHECK: board0 here or board1
-	  Side=CROSSES;
+	  m = number_of_pieces(board1);
+	  printf("\nPRE BOARD: %d ", num);
+	  PrintBoard(board1);
+	  LastMoveMade = GetComputerMove(/*board0,*/ board1, Side);
+	  printf("\n__ Suggested Computer move: %d ", LastMoveMade);
+	  MakeMove(board1, LastMoveMade, Side);
+	  PrintBoard(board1);
+	  assert(number_of_pieces(board1)==m+1);
+	  Side=NOUGHTS;
+#if 1
+	  if (num % 10 == 0) {
+	    printf("Board after %d moves:", num);
+	    PrintBoard(board1); // CHECK board1 or board0
+	  }
 	  gettimeofday(&tv4, NULL);
 	  printf ("Total time = %f seconds\n",
 		  (double) (tv4.tv_usec - tv3.tv_usec) / 1000000 +
 		  (double) (tv4.tv_sec - tv3.tv_sec));
-	  printf("%s COMPUTER MOVE \n", KNRM);		
-	} else {
-	  LastMoveMade = GetComputerMove(board0, board1, Side);
-	  MakeMove(board1, LastMoveMade, Side);
-	  Side=NOUGHTS;
-	  PrintBoard(board1); // CHECK board1 or board0
 	  printf("%s PLAYER MOVE \n", KNRM);
+#endif
 	}
 	// printf("handled by thread, thread id: %d\n", data->tid);
 	gettimeofday(&thr_func2, NULL);
