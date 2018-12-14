@@ -80,7 +80,6 @@ int loopcount = LOOP_COUNT;
 struct tm *foo;
 struct stat attrib;
 
-/* var definitions */
 // needs change for generalisation to arbitrary board size -- HWL
 // const int Directions[4] = {1, 7, 8, 14}; // 1 7 8 14
 const int Directions[NO_OF_DIRS] = {1, 9, 10}; // 1 7 8 14  
@@ -748,6 +747,7 @@ void RunGame(){
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+
 int PrintTimestamp() {
 time_t rawtime;
   char buffer [255];
@@ -776,7 +776,6 @@ int main(/* char [] args, int argc */
   struct timespec begin, end;
   double elapsed;
   clock_gettime(CLOCK_MONOTONIC, &begin);
-
   PrintTimestamp();
   RunGame();
 

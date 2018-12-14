@@ -10,4 +10,3 @@
 #SBATCH --mem-per-cpu=6000
 
 ./ttt_pt_ver2
-
