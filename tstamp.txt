@@ -1,0 +1,8 @@
+timestamp for tictactoe
+
+to get latest timestamp,
+compile and execute the 'ttt_pt_ver4.c',
+then revisited this txt file for the updated timestamp.
+
+The modified time of the file is Dec 11 19:03 by lsharpe
+The accessed time of the file is Dec  9 by lsharpe
