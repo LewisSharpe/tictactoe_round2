@@ -435,13 +435,15 @@ int MinMax (minmax_thread_args *arg) {
         *(thread_args[t].res) = bestScore; // amended from -> to . 22.10.18
 #endif
 
-#ifdef DEBUG // LS 22.10.18	
+#ifdef DEBUG // LS 22.10.18
+// DO WORK
+// ???	
 print(0xdeadbeef);
 #endif
     }
    }
  assert(0);  
- return EXIT_SUCCESS;
+  return EXIT_SUCCESS;
 }
 
 void InitialiseBoard (int **board) { /* NB: this is the address of a var holding a pointer to our board array */  
@@ -564,7 +566,6 @@ int GetComputerMove(/* int *board0,*/ int *board1, const int side) {
 	int bsz = NO_OF_CELLS*sizeof(int);
 
 #ifdef DEBUG
-
 	assert(LOOKS_LIKE_BOARD(board1));
 #endif	
 
