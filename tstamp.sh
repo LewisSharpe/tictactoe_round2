@@ -25,7 +25,7 @@ MOD_TIME=`$LS -lart $1|cut -f6,7,8 -d" "`
 ACC_TIME=`$LS -laru $1|cut -f6,7,8 -d" "`
 echo -e "timestamp for tictactoe\n"
 echo "to get latest timestamp,"
-echo "compile and execute the 'ttt_pt_ver4.c',"
+echo "compile and execute the 'ttt_pt_ver5.c',"
 echo -e "then revisited this txt file for the updated timestamp.\n"
 echo "The modified time of the file is $MOD_TIME by lsharpe"
 echo "The accessed time of the file is $ACC_TIME by lsharpe"

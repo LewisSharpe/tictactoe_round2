@@ -1,6 +1,5 @@
 // Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
 // Time-stamp: <Fri Dec 14 2018 17:47:09 hwloidl>
-
 // Lewis Sharpe
 // 25.08.2017 
 // compile (seq): gcc -DSEQ -o ttt_pt ttt_pt.c

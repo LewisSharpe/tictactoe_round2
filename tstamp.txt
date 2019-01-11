@@ -1,2 +1,8 @@
-[31m Usage: /cm/local/apps/slurm/var/spool/job65010/slurm_script filename
-(B[m
+timestamp for tictactoe
+
+to get latest timestamp,
+compile and execute the 'ttt_pt_ver5.c',
+then revisited this txt file for the updated timestamp.
+
+The modified time of the file is Jan 11 09:50 by lsharpe
+The accessed time of the file is Jan 11 09:49 by lsharpe
