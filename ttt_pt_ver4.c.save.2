@@ -1,0 +1,299 @@
+// Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
+// Time-stamp: <Fri Nov 30 2018 18:04:28 hwloidl>
+// Lewis Sharpe
+// 25.08.2017 
+// compile (seq): gcc -DSEQ -o ttt_pt ttt_pt.c
+// compile: gcc -o ttt_pt ttt_pt.c -lpthread
+// run: ./ttt_pt
+// compile for debug: gcc -DSEQ  -g -o ttt_pt_ver4 ttt_pt_ver4.c
+// debug: gdb ./ttt_pt_ver2
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
+#ifndef SEQ
+#include <pthread.h>
+#endif
+#include "time.h"
+#include <sys/time.h>
+#include <assert.h>
+
+// Lewis Sharpe
+
+#define NUM_THREADS     2
+
+#ifdef COLORS
+/* text colour code declarations */      
+#define KNRM  "\x1B[0m"
+#define KRED  "\x1B[31m"
+#define KGRN  "\x1B[32m"
+#define KYEL  "\x1B[33m"
+#define KBLU  "\x1B[34m"
+#define KMAG  "\x1B[35m"
+#define KCYN  "\x1B[36m"
+#define KWHT  "\x1B[37m"
+#else
+/* text colour code declarations */      
+#define KNRM  ""
+#define KRED  ""
+#define KGRN  ""
+#define KYEL  ""
+#define KBLU  ""
+#define KMAG  ""
+#define KCYN  ""
+#define KWHT  ""
+#endif
+
+// size in one dim:  7x7 board (proper)
+#define BOARD_SIZE 7
+
+#ifdef DEBUG
+#define NO_OF_CELLS ((BOARD_SIZE+2)*(BOARD_SIZE+2)+1)
+#define LOOP_COUNT  (BOARD_SIZE*BOARD_SIZE)
+#define MAGIC_CONST 0xdeadbeef
+#else
+#define NO_OF_CELLS ((BOARD_SIZE+2)*(BOARD_SIZE+2))
+#define LOOP_COUNT  (BOARD_SIZE*BOARD_SIZE)
+#endif
+
+/* enum int const chars */
+enum { NOUGHTS, CROSSES, BORDER, EMPTY };
+enum { HUMANWIN, COMPWIN, DRAW };
+
+int loopcount = LOOP_COUNT;
+
+#ifdef DEBUG
+#define LOOKS_LIKE_BOARD(board)  (board[NO_OF_CELLS-1] == MAGIC_CONST)
+#else
+#define LOOKS_LIKE_BOARD(board)
+#endif
+
+#define NO_OF_DIRS 3
+#define MAX_SCORE  1000
+
+/* var definitions */
+// needs change for generalisation to arbitrary board size -- HWL
+// const int Directions[4] = {1, 7, 8, 14}; // 1 7 8 14
+const int Directions[NO_OF_DIRS] = {1, 9, 10}; // 1 7 8 14  
+const int ConvertTo25[LOOP_COUNT] = { /* positions in 25 array */
+  //  1, 2, 3, 4, 5, 6, 7, 8, 9
+        11,12,13,14,15,16,17,
+        20,21,22,23,24,25,26,
+        29,30,31,32,33,34,35,
+        38,39,40,41,42,43,44,
+        47,48,49,50,51,52,53,
+        56,57,58,59,60,61,62,
+        65,66,67,68,69,70,71,
+  // 73,74,75,76,77,78,79,80.81
+};
+
+const int InMiddle = 41;
+const int Corners[4] = { 11, 17, 65, 71 };
+int ply = 0;         // how many moves deep into tree
+int positions = 0;   // no of pos searched
+int maxPly = 0;      // how deep we have went in tree
+
+/* create thread argument struct for thr_func() */
+/* this looks like a generic data structure, not one for this app -- HWL */
+typedef struct _thread_data_t {
+  int tid;
+  double stuff;
+} thread_data_t;
+
+/* data structure for arguments to MinMax -- HWL */
+typedef struct {
+  int *board1;  // the current board of play
+  int len;      // number of cells on the board
+  int side;     // player making current move
+  int positions;// number of positions visited in the tree
+  int ply;      // current depth in the tree
+  int maxPly;   // max depth to traverse to
+  int *res;     // result from running MinMax on this board; could be an int instead
+} minmax_thread_args;
+
+// -----------------------------------------------------------------------------
+// Prototypes:
+
+void PrintBoard(/* const */ int *board);
+
+// -----------------------------------------------------------------------------
+
+int GetNumForDir (int startSq, const int dir, const int *board, const int us) {
+	int found = 0; 
+	while (board[startSq] != BORDER) { // while start sq not border sq
+		if(board[startSq] != us) {
+		  break;
+		}
+		found++;
+		startSq += dir;
+	}
+	return found;
+}
+
+int FindTwoInARow(const int *board, const int ourindex, const int us) {
+        int DirIndex = 0;
+        int Dir = 0;
+        int twoCount = 1;
+
+        assert(us == NOUGHTS || us == CROSSES);
+        for(DirIndex = 0; DirIndex<NO_OF_DIRS; ++DirIndex) {
+                Dir = Directions[DirIndex];
+                twoCount += GetNumForDir(ourindex + Dir, Dir, board, us);
+                twoCount += GetNumForDir(ourindex + Dir * -1, Dir * -1, board, us);
+                if (twoCount == 2) {
+                        break;
+                }
+                twoCount = 1;
+        }
+        return twoCount;
+}
+
+int FindTwoInARowAllBoard(const int *board, const int us) {
+         /* after move made      */
+        int twoFound = 0;
+        int index;
+        assert(us == NOUGHTS || us == CROSSES);
+        for(index = 0; index < loopcount; ++index) { // for all 9 squares
+                if(board[ConvertTo25[index]] == us) { // if player move
+                        if(FindTwoInARow(board, ConvertTo25[index], us) == 2) {
+                                twoFound = 1; // if move results 2 in row,confirm
+                                break;
+                        }
+                }
+        }
+        return twoFound;
+}
+
+int FindThreeInARow(const int *board, const int ourindex, const int us) {
+        int DirIndex = 0;
+        int Dir = 0;
+        int threeCount = 1;
+	
+        assert(us == NOUGHTS || us == CROSSES); 
+  
+        // for(DirIndex - 0; DirIndex <NO_OF_DIRS; ++DirIndex) { // ????????
+	for(DirIndex = 0; DirIndex<NO_OF_DIRS; ++DirIndex) {
+                Dir = Directions[DirIndex];
+		assert(ourindex + Dir >=1 && ourindex + Dir <= 81); // index check
+                threeCount += GetNumForDir(ourindex + Dir, Dir, board, us);
+//		assert(ourindex + Dir * -1 >= 1 && ourindex + Dir * -1 <= 81); // index check
+                threeCount += GetNumForDir(ourindex + Dir * -1, Dir * -1, board, us);
+                if (threeCount == 3) {
+                        break;
+                }
+                threeCount = 1;
+	}
+	return threeCount;
+}
+
+int FindThreeInARowAllBoard(const int *board, const int us) {
+         /* after move made	 */
+        int threeFound = 0;
+	int index;
+        assert(us == NOUGHTS || us == CROSSES); 
+	for(index = 0; index < loopcount; ++index) { // for all 9 squares
+		if(board[ConvertTo25[index]] == us) { // if player move
+			if(FindThreeInARow(board, ConvertTo25[index], us) == 3) {				
+				threeFound = 1; // if move results 3 in row,confirm 
+				break;
+			}
+		}
+	}	
+	return threeFound;
+}
+
+
+int EvalForWin(const int *board, const int us) {
+  // eval if move is win draw or loss
+  assert(us == NOUGHTS || us == CROSSES); 
+  if(FindThreeInARowAllBoard(board, us) != 0) // player win?
+    return 1; // player win confirmed
+  if(FindThreeInARowAllBoard(board, us ^ 1) != 0) // opponent win?
+    return -1; // opp win confirmed
+  return 0;
+}
+
+int EvalForWin2(const int *board, const int us) {
+ // eval if move is win draw or loss
+  assert(us == NOUGHTS || us == CROSSES);
+  if(FindTwoInARowAllBoard(board, us) != 0)
+    return 1; // player win confirmed
+  if(FindTwoInARowAllBoard(board, us ^ 1) != 0) 
+    return -1; // opp win confirmed
+  return 0;
+}
+
+// static evaluation function; 
+int EvalCurrentBoard(const int *board, const int side) {
+  int score;
+  score = EvalForWin(board, side); // 1 for win, 0 for unknown
+  if (score == 1)
+    return MAX_SCORE;
+  score = EvalForWin2(board, side); // 1 for win, 0 for unknown
+  if (score == 1)
+    return MAX_SCORE/10;
+  return MAX_SCORE/100;
+}
+
+#ifdef SEQ
+// in the sequential version, you probably have just board1, and side as input;
+// use a struct in this case as well, so that you can share code with the pthreads version
+int MinMax (minmax_thread_args *arg /* int        *board0, int *board1, int side */) {
+#else// in the pthreads version, use a struct as in the pthreads2.c sample code -- HWL
+int MinMax (minmax_thread_args *arg) {
+#endif
+	int *board1 = arg->board1;
+	int len = arg->len;
+	int side = arg->side;
+	int ply = arg->ply;
+	int maxPly = arg->maxPly;
+	// recursive function calling - min max will call again and again through tree - to maximise score
+	// check if there is a win
+	// generate tree for all move for side (ply or opp)
+	// loop moves , make move, min max on move to get score
+	// assess best score
+	// end moves return bestscore
+
+	// defintions
+        int MoveList[NO_OF_CELLS]; // 9 pos sqs on board
+        int MoveCount = 0; // count of move
+        int bestScore = -2;
+        int score = -2; // current score of move
+        int bestMove = -1; // best move with score
+        int Move; // current move
+        int index; // indexing for loop
+
+	/* pthreads defintions */
+	pthread_t thr[NUM_THREADS];
+	minmax_thread_args *thread_args[NUM_THREADS];
+	int i, t, rc[i];
+
+	// used in loop, to pass arguments to recursive calls
+	const int asz = sizeof(minmax_thread_args);  // size of the argument struct
+	const int bsz = NO_OF_CELLS*sizeof(int);     // size of the board, pointed to
+	minmax_thread_args *new_thread_arg;
+	
+	/* HERE <============== */
+	assert(side == NOUGHTS || side == CROSSES); 
+	assert(board1[0] == NOUGHTS || board1[0] == CROSSES || board1[0] ==  BORDER || board1[0] ==  EMPTY);
+#ifdef DEBUG
+	assert(LOOKS_LIKE_BOARD(board1));
+#endif	
+
+ printf(".. MinMax with ply %d and side %d and board %p", ply, side, board1);
+		PrintBoard(board1);
+		
+	// can't use GLOBAL vars in the pthreads version
+	// if deeper in the tree than mandated by maxPly, then terminated the recursions and return
+	/*
+        if(ply > maxPly) // if current pos depper than max dep
+                 maxPly = ply; // max ply set to current pos
+	*/
+        if(ply > maxPly) // if current pos depper than max dep
+	  return EvalCurrentBoard(board1, side);
+
+        positions++; // increment positions, as visited new position
+	
+        if(ply > 0) { /* remove the global variable -- HWL */
+           score = EvalForWin2(board1, side);
+            score = EvalForWin(board1, side); // is current pos a win?

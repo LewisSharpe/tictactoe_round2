@@ -1,0 +1,2 @@
+[31m Usage: /cm/local/apps/slurm/var/spool/job65010/slurm_script filename
+(B[m
