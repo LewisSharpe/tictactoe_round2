@@ -1,5 +1,5 @@
 // Tic Tac Toe - PTheards C version - Version 4 - 7x7 Grid
-// Time-stamp: <Fri Dec 14 2018 17:47:09 hwloidl>
+// Time-stamp: <Fri Dec 14 2018 16:49:36 hwloidl>
 // Lewis Sharpe
 // 25.08.2017 
 // compile (seq): gcc -DSEQ -o ttt_pt ttt_pt.c
@@ -312,9 +312,7 @@ int MinMax (minmax_thread_args *arg) {
 	  return EvalCurrentBoard(board1, side);
 
         positions++; // increment positions, as visited new position
-
-#if 0
-	// why is this needed!?? if for immediate win you need to check for MAX_SCORE
+	
         if(ply > 0) { /* remove the global variable -- HWL */
            score = EvalForWin2(board1, side);
             score = EvalForWin(board1, side); // is current pos a win?
@@ -322,8 +320,7 @@ int MinMax (minmax_thread_args *arg) {
                      return score;  /* return score, stop searching, game won */
                 }
         }
-#endif
-	
+
         // if no win, fill Move List
 	{ int on = 1;
         // find empty cells
@@ -336,9 +333,6 @@ int MinMax (minmax_thread_args *arg) {
 	      on = 0;
 	    }
 #endif
-	  } else {
-	    // printf("** NON EMPTY index %d on board\n", index);
-	    // PrintBoard(board1);
 	  }
         }
 	}
@@ -369,30 +363,15 @@ int MinMax (minmax_thread_args *arg) {
 	    new_thread_arg->len = NO_OF_CELLS; // BAD magic constant
 	    new_thread_arg->side = side^1;
 	    new_thread_arg->positions = positions;
-	    new_thread_arg->ply = ply+1;
+	    new_thread_arg->ply = ply++;
 	    new_thread_arg->maxPly = maxPly;
             new_thread_arg->res = (int*)malloc(sizeof(int));
 	    // copy board to board0
 	    memcpy(new_thread_arg->board1, board1, bsz); // ORDER: dest, source, size
-	    Move = MoveList[index];
-	    // ASSERTION: Move must be a valid position ie empty cell
-	    if (board1[ConvertTo25[Move]] != EMPTY && index >= 1 || index <= 49 ) { 
-	      printf("** FAILED ASSERTION: index %d not EMPTY on board\n", Move);
-	      PrintBoard(board1);
-	      
-	      //exit(99);
-	    }
-	    	    // I assume that board0 is the temp board to be used for the thread
             Move = MoveList[index];
-	    // ASSERTION: Move must be a valid position ie empty cell
-	    if (board1[ConvertTo25[Move]] != EMPTY) {
-	      printf("** FAILED ASSERTION: index %d not EMPTY on board\n", Move);
-	      PrintBoard(board1);
-	      exit(99);
-	    }
 	    // I assume that board0 is the temp board to be used for the thread
             new_thread_arg->board1[Move] = side;
-            // ply++; // increment ply
+            ply++; // increment ply
             // PARALLEL CALL; BEWARE board shared btw all threads; use board0 instead
 #ifdef SEQ 
             // needs update to use the arg struct in the sequential version as well  
@@ -413,10 +392,9 @@ int MinMax (minmax_thread_args *arg) {
 	    // sanity check: is this true in the execution?
 	    assert(MIN_SCORE<=score && score<=MAX_SCORE);
 	    // if (MIN_SCORE<=score && score<=MAX_SCORE) { } else { exit (1); }
-
-	    // in the thread_arg version yu create a new copy of the board for every move; so you don't have to undo a move
+	    
 	    // undo moves
-	    // board1[Move] = EMPTY; // else clear board; no longer needed if you use new_thread_arg -- HWL
+	    board1[Move] = EMPTY; // else clear board; no longer needed if you use new_thread_arg -- HWL
 	    // ply--; // decrement ply // why?? this should be the depth of the recursion 
 	  } // for ... NUM_THREADS
 
@@ -450,11 +428,7 @@ int MinMax (minmax_thread_args *arg) {
 	if (ply!=0) {
 	  return bestScore;
 	} else {
-	  //assert(board1[ConvertTo25[bestMove]] == EMPTY);
-	  printf("*****************************\n");
-	  printf("** DONE WITH BOARD\n");
-	  PrintBoard(board1);
-	  printf("** best move %d with score %d side %d\n", bestMove, bestScore, side);
+	  // assert(board1[ConvertTo25[bestMove]] == EMPTY);
 	  return bestMove;
 	}
 #else
@@ -503,13 +477,6 @@ print(0xdeadbeef);
 
   assert(0);
   return EXIT_SUCCESS;
-<<<<<<< HEAD
-<<<<<<< HEAD
-}
-=======
->>>>>>> ca01f501165a52435844e3975e4b54a030abbb26
-=======
->>>>>>> ca01f501165a52435844e3975e4b54a030abbb26
 #endif
 }
 
@@ -615,6 +582,7 @@ int GetWinningMove(int *board, const int side) {
 				break;
 			}
 			ourMove = -1;
+printf("test");
 		};
 	} 
 	return ourMove;
@@ -654,11 +622,13 @@ int GetComputerMove(/* int *board0,*/ int *board1, const int side) {
 	PrintBoard(thread_arg->board1);
 
 	best = MinMax(thread_arg);       // need to pass a buffer here
+	printf("Before failing assert:"); // LS
+        PrintBoard(thread_arg->board1);
+	assert(thread_arg->board1[ConvertTo25[best]] == EMPTY); // <<============= FAILING ASSERTION
 	
 	// best = MinMax(*arg); // NO: this passes an undefined pointer to MinMax
 	printf("++ Finished searching through positions in tree: %d max depth: %d best move: %d \n",
 	       thread_arg->positions, thread_arg->maxPly, best); // TODO: fix access to maxPly etc
-	assert(thread_arg->board1[ConvertTo25[best]] == EMPTY); // <<============= FAILING ASSERTION
 	return best;
 }
 int GetHumanMove(/* int *board0,*/ int *board1, const int side) {
@@ -720,6 +690,7 @@ void MakeMove (int *board, const int sq, const int side) {
 /* thread function */
 // void *thr_func(void *arg, int *board0, int *board1) {
 void RunGame(){
+assert(1);
  	printf("%s TIC TAC TOE \n", KNRM);
  	struct timeval thr_func1, thr_func2;
  	gettimeofday(&thr_func1, NULL);
@@ -745,8 +716,8 @@ void RunGame(){
 	if (Side==NOUGHTS) {
 	  int m;
 	  m = number_of_pieces(board1);
-	  // printf("\nPRE BOARD: %d ", num);
-	  // PrintBoard(board1);
+	  printf("\nPRE BOARD: %d ", num);
+	  PrintBoard(board1);
 	  LastMoveMade = GetHumanMove (/*board0,*/ board1, Side);
 	  printf("\n__ Suggested Human move: %d ", LastMoveMade);
 	  MakeMove(board1, LastMoveMade, Side); // CHECK: board0 here or board1
@@ -759,8 +730,8 @@ void RunGame(){
 	  struct timeval tv3, tv4;
 	  gettimeofday(&tv3, NULL);
 	  m = number_of_pieces(board1);
-	  // printf("\nPRE BOARD: %d ", num);
-	  // PrintBoard(board1);
+	  printf("\nPRE BOARD: %d ", num);
+	  PrintBoard(board1);
 	  LastMoveMade = GetComputerMove(/*board0,*/ board1, Side);
 	  printf("\n__ Suggested Computer move: %d ", LastMoveMade);
 	  MakeMove(board1, LastMoveMade, Side);
